@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite2">
+
+    <test name="add-subtract-suite">
+        <classes>
+            <class name="hw1.tests.AddTest">
+                <methods>
+                    <include name="addTest"/>
+                </methods>
+            </class>
+            <class name="hw1.tests.SubTest">
+                <methods>
+                    <include name="subTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

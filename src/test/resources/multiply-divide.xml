@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite2">
+    <test name="multiply-divide-suite">
+        <classes>
+            <class name="hw1.tests.MultTest">
+                <methods>
+                    <include name="multTest"/>
+                </methods>
+            </class>
+            <class name="hw1.tests.DivTest">
+                <methods>
+                    <include name="divTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
