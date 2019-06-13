@@ -3,6 +3,8 @@ package hw1.dataproviders;
 import org.testng.annotations.DataProvider;
 
 public class DataProviders {
+
+    // TODO Why do you decide use this set of test data?
     @DataProvider(name = "correct division data")
     public static Object[][] correctDivData() {
         return new Object[][]{{27, 3, 9}, {144, 12, 12}, {40, 4, 10}};
