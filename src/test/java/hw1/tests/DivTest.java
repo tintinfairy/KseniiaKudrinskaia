@@ -12,6 +12,7 @@ public class DivTest {
 
     @Test(dataProviderClass = DataProviders.class, dataProvider = "correct division data")
     public void divTest(long a, long b, long result) {
+        // TODO Why do you decide do not create Calculator instance in the right before hook?
         Calculator calculator = new Calculator();
         System.out.println("DivTest");
         assertEquals(calculator.div(a, b), result);
