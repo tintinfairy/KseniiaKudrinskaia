@@ -5,10 +5,6 @@ import org.testng.annotations.DataProvider;
 
 public class DataProviders {
 
-    // TODO Why do you decide use this set of test data?
-    //More meaningful data was chosen: border values to be sure that we work in "Long", zero and ordinary
-    //values to be sure that linear space axioms and multiplication and subtraction tables work
-    //cause if they work for this examples, they will work on other values
     @DataProvider(name = "correct division data")
     public static Object[][] correctDivData() {
         return new Object[][]{{27, 3, 9}, {144, 12, 12}, {Long.MAX_VALUE, Integer.MAX_VALUE, 4294967298L}};
