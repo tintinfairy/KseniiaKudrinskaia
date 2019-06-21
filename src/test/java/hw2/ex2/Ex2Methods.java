@@ -11,6 +11,7 @@ import static org.testng.Assert.*;
 
 public class Ex2Methods extends BaseMethods {
 
+    // TODO Why this field is required?
     private List<WebElement> webElements;
 
     public void setElementsListByPath(String path) {
@@ -27,6 +28,7 @@ public class Ex2Methods extends BaseMethods {
 
     //5.Click on "Service" subcategory in the header and check that drop down contains options
     //6.Click on Service subcategory in the left section and check that drop down contains options
+    // TODO Why ii has postfix as Test?
     public void headerServiceTest(String dropdownXpath, String elementsXpath, List<String> elementsOfDropdown) {
         int count = 0;
         getElementByPath(dropdownXpath).click();
@@ -38,6 +40,7 @@ public class Ex2Methods extends BaseMethods {
                 }
             }
         }
+        // TODO Why this method required
         deleteElementsList();
         assertEquals(count, 6);
     }
@@ -59,6 +62,8 @@ public class Ex2Methods extends BaseMethods {
     //8.Check interface on Different elements page, it contains all needed elements
     public void amountOfElementsAssertion(String path, int expectedAmount, String typeOfLocator) {
         openPage("https://epam.github.io/JDI/different-elements.html");
+        // TODO May be it is better use enum?
+        // TODO By Java code convention it should looks like "xpath".equals(typeOfLocator)
         if (typeOfLocator.equals("xpath")) {
             setElementsListByPath(path);
         } else {
