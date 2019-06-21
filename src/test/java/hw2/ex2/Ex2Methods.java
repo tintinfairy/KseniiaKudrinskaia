@@ -1,6 +1,6 @@
 package hw2.ex2;
 
-import hw2.base.BaseMethods;
+import hw2.base.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -9,69 +9,54 @@ import java.util.List;
 
 import static org.testng.Assert.*;
 
-public class Ex2Methods extends BaseMethods {
+public class Ex2Methods extends BaseTest {
 
-    // TODO Why this field is required?
-    private List<WebElement> webElements;
+    // TODO Why this field is required? [FIXED]
 
-    public void setElementsListByPath(String path) {
-        webElements = driver.findElements(By.xpath(path));
-    }
-
-    public void setElementsListByClassName(String className) {
-        webElements = driver.findElements(By.className(className));
-    }
-
-    public void deleteElementsList() {
-        webElements = null;
-    }
 
     //5.Click on "Service" subcategory in the header and check that drop down contains options
     //6.Click on Service subcategory in the left section and check that drop down contains options
-    // TODO Why ii has postfix as Test?
-    public void headerServiceTest(String dropdownXpath, String elementsXpath, List<String> elementsOfDropdown) {
+    // TODO Why ii has postfix as Test? [FIXED]
+    public void amountOfServiceHeadersAssertion(String dropdownXpath, String elementsXpath, List<String> elementsOfDropdown) {
         int count = 0;
         getElementByPath(dropdownXpath).click();
-        setElementsListByPath(elementsXpath);
+        List<WebElement> serviceHeaders = driver.findElements(By.xpath(elementsXpath));
         for (int i = 0; i < elementsOfDropdown.size(); i++) {
-            for (WebElement element : webElements) {
+            for (WebElement element : serviceHeaders) {
                 if (element.getText().equals(elementsOfDropdown.get(i))) {
                     count++;
                 }
             }
         }
-        // TODO Why this method required
-        deleteElementsList();
+        // TODO Why this method required [FIXED]
         assertEquals(count, 6);
     }
 
     //7.Open through the header menu Service -> Different Elements Page
     public void openServicePages(String dropdownXpath, String elementsXpath) {
         getElementByPath(dropdownXpath).click();
-        setElementsListByPath(elementsXpath);
-        for (int i = 0; i < webElements.size(); i++) {
-            webElements.get(i).click();
-            openPage("https://epam.github.io/JDI");
-            getElementByPath(dropdownXpath).click();
-            setElementsListByPath(elementsXpath);
+        List<WebElement> elements = driver.findElements(By.xpath(elementsXpath));
+        for (int i = 0; i < elements.size(); i++) {
+            if (elements.get(i).getText() == "DIFFERENT ELEMENTS") {
+                elements.get(i).click();
+            }
         }
-        deleteElementsList();
 
     }
 
     //8.Check interface on Different elements page, it contains all needed elements
-    public void amountOfElementsAssertion(String path, int expectedAmount, String typeOfLocator) {
+    public void amountOfCheckboxesAndRadiosAssertion(String className, int expectedAmount) {
         openPage("https://epam.github.io/JDI/different-elements.html");
-        // TODO May be it is better use enum?
-        // TODO By Java code convention it should looks like "xpath".equals(typeOfLocator)
-        if (typeOfLocator.equals("xpath")) {
-            setElementsListByPath(path);
-        } else {
-            setElementsListByClassName(path);
-        }
-        int amount = webElements.size();
-        deleteElementsList();
-        assertEquals(amount, expectedAmount);
+        // TODO May be it is better use enum? [FIXED]
+        // TODO By Java code convention it should looks like "xpath".equals(typeOfLocator) [FIXED]
+        List<WebElement> elements = driver.findElements(By.className(className));
+        assertEquals(elements.size(), expectedAmount);
+    }
+
+    public void amountOfDropdownsAndButtonsAssertion(String path, int expectedAmount) {
+        openPage("https://epam.github.io/JDI/different-elements.html");
+        List<WebElement> elements = driver.findElements(By.xpath(path));
+        assertEquals(elements.size(), expectedAmount);
     }
 
     //9.Assert that there is Right Section
@@ -98,24 +83,22 @@ public class Ex2Methods extends BaseMethods {
     //18.Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.
     public void logRowAssertionCheckboxes(String path, String nameOfElement, String elementXpath, boolean checked) {
         boolean flag = false;
-        setElementsListByPath(path);
+        List<WebElement> elements = driver.findElements(By.xpath(path));
         if (checked) {
-            for (int i = 0; i < webElements.size(); i++) {
+            for (int i = 0; i < elements.size(); i++) {
 
-                if (webElements.get(i).getText().contains(nameOfElement) && getElementByPath(elementXpath).isSelected() && webElements.get(i).getText().contains("true")) {
+                if (elements.get(i).getText().contains(nameOfElement) && getElementByPath(elementXpath).isSelected() && elements.get(i).getText().contains("true")) {
                     flag = true;
                 }
             }
         } else {
-            for (int i = 0; i < webElements.size(); i++) {
-                if (webElements.get(i).getText().contains(nameOfElement) && webElements.get(i).getText().contains("false")) {
+            for (int i = 0; i < elements.size(); i++) {
+                if (elements.get(i).getText().contains(nameOfElement) && elements.get(i).getText().contains("false")) {
                     flag = true;
                 }
             }
-
-
         }
-        deleteElementsList();
+
         assertTrue(flag);
 
     }
@@ -124,14 +107,13 @@ public class Ex2Methods extends BaseMethods {
     //14.Assert that for radiobutton there is a log row and value is corresponded to the status of radiobutton.
     public void logRowAssertionRadios(String path, String nameOfElement, String elementXpath) {
         boolean flag = false;
-        setElementsListByPath(path);
-        for (int i = 0; i < webElements.size(); i++) {
+        List<WebElement> elements = driver.findElements(By.xpath(path));
+        for (int i = 0; i < elements.size(); i++) {
 
-            if (webElements.get(i).getText().contains(nameOfElement) && getElementByPath(elementXpath).isSelected()) {
+            if (elements.get(i).getText().contains(nameOfElement) && getElementByPath(elementXpath).isSelected()) {
                 flag = true;
             }
         }
-        deleteElementsList();
         assertTrue(flag);
 
     }
@@ -145,15 +127,14 @@ public class Ex2Methods extends BaseMethods {
     //16.Assert that for dropdown there is a log row and value is corresponded to the selected value.
     public void logRowAssertionDropdowns(String path, String nameOfElement) {
         boolean flag = false;
-        setElementsListByPath(path);
-        for (int i = 0; i < webElements.size(); i++) {
+        List<WebElement> elements = driver.findElements(By.xpath(path));
+        for (int i = 0; i < elements.size(); i++) {
 
-            if (webElements.get(i).getText().contains(nameOfElement)) {
+            if (elements.get(i).getText().contains(nameOfElement)) {
                 flag = true;
             }
 
         }
-        deleteElementsList();
         assertTrue(flag);
 
     }

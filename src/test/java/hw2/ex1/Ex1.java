@@ -1,40 +1,31 @@
 package hw2.ex1;
 
+import hw2.base.BaseTest;
 import org.testng.annotations.Test;
 
 @Test
-public class Ex1 {
+public class Ex1 extends BaseTest {
+
     @Test
     public void main() {
+
         Ex1Methods methods = new Ex1Methods();
-        // TODO Code duplication Ex2
-        methods.setUpDriverPath();
 
-        //1. Open test site by URL
         // TODO Code duplication Ex2
-        methods.openPage("https://epam.github.io/JDI");
+        // TODO Code duplication Ex2
+        // TODO Code duplication Ex2
+        // TODO Code duplication Ex2
+        //Fixed in hw2.base.BaseTest.class
 
-        //2. Assert browser title
-        // TODO Code duplication Ex2
-        methods.seleniumOpenPageTest("Home Page");
-
-        //3. Perform login
-        // TODO Code duplication Ex2
-        methods.loginTest("epam", "1234");
-
-        //4.Assert User name in left-top side of screen that user is logged
-        // TODO Code duplication Ex2
-        methods.usernameAssertionTest("PITER CHAILOVSKII");
 
         //5. Assert browser title
-        // TODO Code duplication Ex2
-        methods.seleniumOpenPageTest("Home Page");
+        pageTitleAssertion("Home Page");
 
         //6. Assert that there are 4 items on the header section are displayed and they have proper texts
-        methods.headerSectionElementsTest("//a[contains(text(),'Home')]", "HOME");
-        methods.headerSectionElementsTest("//a[contains(text(),'Contact form')]", "CONTACT FORM");
-        methods.headerSectionElementsTest("//a[contains(text(),'Service')]", "SERVICE");
-        methods.headerSectionElementsTest("//a[contains(text(),'Metals & Colors')]", "METALS & COLORS");
+        methods.headerSectionElementsAssertion("//a[contains(text(),'Home')]", "HOME");
+        methods.headerSectionElementsAssertion("//a[contains(text(),'Contact form')]", "CONTACT FORM");
+        methods.headerSectionElementsAssertion("//a[contains(text(),'Service')]", "SERVICE");
+        methods.headerSectionElementsAssertion("//a[contains(text(),'Metals & Colors')]", "METALS & COLORS");
 
         //7.Assert that there are 4 images on the Index Page and they are displayed
         methods.imageIndexPageAssertion();
@@ -70,17 +61,17 @@ public class Ex1 {
         methods.iframeAssertion();
 
         //11.Switch to the iframe and check that there is Epam logo in the left top conner of iframe
-        methods.epamLogoFrame();
+        methods.epamLogoFrameSwitch();
 
         //12.Switch to original window back
         methods.switchToMainFrame();
 
         //13.Assert a text of the sub header
         String jdiPath = "//a[@href='https://github.com/epam/JDI']";
-        methods.subHeaderTextAssertion(jdiPath, "JDI GITHUB");
+        methods.subHeaderTextAssert(jdiPath, "JDI GITHUB");
 
         //14.Assert that JDI GITHUB is a link and has a proper URL
-        methods.jdiUrlAssertion(jdiPath, "https://github.com/epam/JDI");
+        methods.jdiUrlAssert(jdiPath, "https://github.com/epam/JDI");
 
         //15.Assert that there is Left Section
         methods.leftSectionAssert();
@@ -89,9 +80,6 @@ public class Ex1 {
         methods.footerAssert();
 
 
-        //17. Close browser
-        // TODO Code duplication Ex2
-        methods.tearDown();
     }
 
 }

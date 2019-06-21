@@ -1,51 +1,47 @@
 package hw2.ex2;
 
+import hw2.base.BaseTest;
+import hw2.ex2.enums.ExpectedAmountOfItemsOfDifferentElementsPage;
+import hw2.ex2.enums.PathForItemsOfDifferentElementsPage;
 import org.testng.annotations.Test;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 
 @Test
-public class Ex2 {
+public class Ex2 extends BaseTest {
     @Test
     public void main() {
         Ex2Methods methods = new Ex2Methods();
         // TODO Code duplication Ex1
-        methods.setUpDriverPath();
 
-        //1. Open test site by URL
         // TODO Code duplication Ex1
-        methods.openPage("https://epam.github.io/JDI");
 
-        //2. Assert browser title
         // TODO Code duplication Ex1
-        methods.seleniumOpenPageTest("Home Page");
 
-        //3. Perform login
         // TODO Code duplication Ex1
-        methods.loginTest("epam", "1234");
 
-        //4.Assert User name in left-top side of screen that user is logged
         // TODO Code duplication Ex1
-        methods.usernameAssertionTest("PITER CHAILOVSKII");
+
+        //Fixed in hw2.base.BaseTest.class
 
         //5.Click on "Service" subcategory in the header and check that drop down contains options
         List<String> elementsOfHeaderDropdown = Arrays.asList("SUPPORT", "DATES", "COMPLEX TABLE", "SIMPLE TABLE", "TABLE WITH PAGES", "DIFFERENT ELEMENTS");
-        methods.headerServiceTest("//a[text()[contains(., 'Service')]]", "//ul[contains(@class,'dropdown-menu')]/li/a", elementsOfHeaderDropdown);
+        methods.amountOfServiceHeadersAssertion("//a[text()[contains(., 'Service')]]", "//ul[contains(@class,'dropdown-menu')]/li/a", elementsOfHeaderDropdown);
 
         //6. Click on Service subcategory in the left section and check that drop down contains options
         List<String> elementsOfSubDropdown = Arrays.asList("Support", "Dates", "Complex Table", "Simple Table", "Table with pages", "Different elements");
-        methods.headerServiceTest("//span[text()[contains(., 'Service')]]", "//ul[contains(@class,'sub')]/li/a", elementsOfSubDropdown);
+        methods.amountOfServiceHeadersAssertion("//span[text()[contains(., 'Service')]]", "//ul[contains(@class,'sub')]/li/a", elementsOfSubDropdown);
 
         //7.Open through the header menu Service -> Different Elements Page
         methods.openServicePages("//a[text()[contains(., 'Service')]]", "//ul[contains(@class,'dropdown-menu')]/li/a");
 
         //8.Check interface on Different elements page, it contains all needed elements
-        methods.amountOfElementsAssertion("label-checkbox", 4, "className");
-        methods.amountOfElementsAssertion("label-radio", 4, "className");
-        methods.amountOfElementsAssertion("//select", 1, "xpath");
-        methods.amountOfElementsAssertion("//*[@class='uui-button']", 2, "xpath");
+        methods.amountOfCheckboxesAndRadiosAssertion(PathForItemsOfDifferentElementsPage.CHECKBOX.getPath(), ExpectedAmountOfItemsOfDifferentElementsPage.CHECKBOX
+                .getAmount());
+        methods.amountOfCheckboxesAndRadiosAssertion(PathForItemsOfDifferentElementsPage.RADIO.getPath(), ExpectedAmountOfItemsOfDifferentElementsPage.RADIO.getAmount());
+        methods.amountOfDropdownsAndButtonsAssertion(PathForItemsOfDifferentElementsPage.DROPDOWN.getPath(), ExpectedAmountOfItemsOfDifferentElementsPage.DROPDOWN.getAmount());
+        methods.amountOfDropdownsAndButtonsAssertion(PathForItemsOfDifferentElementsPage.BUTTON.getPath(), ExpectedAmountOfItemsOfDifferentElementsPage.BUTTON.getAmount());
 
         //9.Assert that there is Right Section
         //10.Assert that there is Right Section
@@ -80,9 +76,8 @@ public class Ex2 {
         methods.logRowAssertionCheckboxes("//ul[@class='panel-body-list logs']/li", "Water", "//label[contains(.,'Water')]/input", false);
         methods.logRowAssertionCheckboxes("//ul[@class='panel-body-list logs']/li", "Wind", "//label[contains(.,'Wind')]/input", false);
 
-        //19.Close browser
-        // TODO Code duplication Ex1
-        methods.tearDown();
+        // TODO Code duplication Ex1 [FIXED]
+
 
     }
 }

@@ -1,6 +1,6 @@
 package hw2.ex1;
 
-import hw2.base.BaseMethods;
+import hw2.base.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -8,11 +8,11 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
-public class Ex1Methods extends BaseMethods {
+public class Ex1Methods extends BaseTest {
 
     //6. Assert that there are 4 items on the header section are displayed and they have proper texts
-    // TODO Why ii has postfix as Test?
-    public void headerSectionElementsTest(String path, String expectedHeader) {
+    // TODO Why ii has postfix as Test? [FIXED]
+    public void headerSectionElementsAssertion(String path, String expectedHeader) {
         getElementByPath(path).isDisplayed();
         assertEquals(getElementByPath(path).getText(), expectedHeader);
 
@@ -20,7 +20,7 @@ public class Ex1Methods extends BaseMethods {
 
 
     //7.Assert that there are 4 images on the Index Page and they are displayed
-    // TODO Why ii has postfix as Test?
+    // TODO Why ii has postfix as Test? [FIXED]
     public void imageIndexPageAssertion() {
 
         List<WebElement> images = driver.findElements(By.className("benefit-icon"));
@@ -31,25 +31,25 @@ public class Ex1Methods extends BaseMethods {
     }
 
     //8.Assert that there are 4 texts on the Index Page under icons and they have proper text
-    // TODO Why ii has postfix as Test?
+    // TODO Why ii has postfix as Test?[FIXED]
     public void amountUnderIconsTextAssertion(String path) {
         List<WebElement> allUnderIconsText = driver.findElements(By.xpath(path));
         assertEquals(allUnderIconsText.size(), 4);
     }
 
-    // TODO Why ii has postfix as Test?
+    // TODO Why ii has postfix as Test?[FIXED]
     public String getUnderIconText(int i, String path) {
         List<WebElement> allUnderIconsText = driver.findElements(By.xpath(path));
         return allUnderIconsText.get(i).getText();
     }
 
-    // TODO Why ii has postfix as Test?
+    // TODO Why ii has postfix as Test?[FIXED]
     public void underIconsTextAssertion(int id, String path, String text) {
         assertEquals(getUnderIconText(id, path), text);
     }
 
     //9.Assert a text of the main headers
-    // TODO Why ii has postfix as Test?
+    // TODO Why ii has postfix as Test? [FIXED]
     public void mainHeaderTextAssertion(String name, String expectedText) {
         driver.findElements(By.name(name));
         assertEquals(driver.findElement(By.name(name)).getText(), expectedText);
@@ -62,7 +62,7 @@ public class Ex1Methods extends BaseMethods {
     }
 
     //11.Switch to the iframe and check that there is Epam logo in the left top conner of iframe
-    public void epamLogoFrame() {
+    public void epamLogoFrameSwitch() {
         driver.switchTo().frame(0);
         getElementById("user-icon").isDisplayed();
         driver.switchTo().defaultContent();
@@ -75,12 +75,12 @@ public class Ex1Methods extends BaseMethods {
     }
 
     //13.Assert a text of the sub header
-    public void subHeaderTextAssertion(String path, String text) {
+    public void subHeaderTextAssert(String path, String text) {
         assertEquals(getElementByPath(path).getText(), text);
     }
 
     //14.Assert that JDI GITHUB is a link and has a proper URL
-    public void jdiUrlAssertion(String path, String text) {
+    public void jdiUrlAssert(String path, String text) {
         assertEquals(getElementByPath(path).getAttribute("href"), text);
     }
 
