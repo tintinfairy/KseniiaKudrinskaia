@@ -7,21 +7,27 @@ public class Ex1 {
     @Test
     public void main() {
         Ex1Methods methods = new Ex1Methods();
+        // TODO Code duplication Ex2
         methods.setUpDriverPath();
 
         //1. Open test site by URL
+        // TODO Code duplication Ex2
         methods.openPage("https://epam.github.io/JDI");
 
         //2. Assert browser title
+        // TODO Code duplication Ex2
         methods.seleniumOpenPageTest("Home Page");
 
         //3. Perform login
+        // TODO Code duplication Ex2
         methods.loginTest("epam", "1234");
 
         //4.Assert User name in left-top side of screen that user is logged
+        // TODO Code duplication Ex2
         methods.usernameAssertionTest("PITER CHAILOVSKII");
 
         //5. Assert browser title
+        // TODO Code duplication Ex2
         methods.seleniumOpenPageTest("Home Page");
 
         //6. Assert that there are 4 items on the header section are displayed and they have proper texts
@@ -84,6 +90,7 @@ public class Ex1 {
 
 
         //17. Close browser
+        // TODO Code duplication Ex2
         methods.tearDown();
     }
 

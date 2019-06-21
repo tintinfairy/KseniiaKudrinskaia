@@ -11,19 +11,23 @@ public class Ex2 {
     @Test
     public void main() {
         Ex2Methods methods = new Ex2Methods();
+        // TODO Code duplication Ex1
         methods.setUpDriverPath();
 
         //1. Open test site by URL
-
+        // TODO Code duplication Ex1
         methods.openPage("https://epam.github.io/JDI");
 
         //2. Assert browser title
+        // TODO Code duplication Ex1
         methods.seleniumOpenPageTest("Home Page");
 
         //3. Perform login
+        // TODO Code duplication Ex1
         methods.loginTest("epam", "1234");
 
         //4.Assert User name in left-top side of screen that user is logged
+        // TODO Code duplication Ex1
         methods.usernameAssertionTest("PITER CHAILOVSKII");
 
         //5.Click on "Service" subcategory in the header and check that drop down contains options
@@ -77,6 +81,7 @@ public class Ex2 {
         methods.logRowAssertionCheckboxes("//ul[@class='panel-body-list logs']/li", "Wind", "//label[contains(.,'Wind')]/input", false);
 
         //19.Close browser
+        // TODO Code duplication Ex1
         methods.tearDown();
 
     }

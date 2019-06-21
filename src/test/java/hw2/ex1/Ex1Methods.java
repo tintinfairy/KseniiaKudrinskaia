@@ -11,6 +11,7 @@ import static org.testng.Assert.assertEquals;
 public class Ex1Methods extends BaseMethods {
 
     //6. Assert that there are 4 items on the header section are displayed and they have proper texts
+    // TODO Why ii has postfix as Test?
     public void headerSectionElementsTest(String path, String expectedHeader) {
         getElementByPath(path).isDisplayed();
         assertEquals(getElementByPath(path).getText(), expectedHeader);
@@ -19,6 +20,7 @@ public class Ex1Methods extends BaseMethods {
 
 
     //7.Assert that there are 4 images on the Index Page and they are displayed
+    // TODO Why ii has postfix as Test?
     public void imageIndexPageAssertion() {
 
         List<WebElement> images = driver.findElements(By.className("benefit-icon"));
@@ -29,21 +31,25 @@ public class Ex1Methods extends BaseMethods {
     }
 
     //8.Assert that there are 4 texts on the Index Page under icons and they have proper text
+    // TODO Why ii has postfix as Test?
     public void amountUnderIconsTextAssertion(String path) {
         List<WebElement> allUnderIconsText = driver.findElements(By.xpath(path));
         assertEquals(allUnderIconsText.size(), 4);
     }
 
+    // TODO Why ii has postfix as Test?
     public String getUnderIconText(int i, String path) {
         List<WebElement> allUnderIconsText = driver.findElements(By.xpath(path));
         return allUnderIconsText.get(i).getText();
     }
 
+    // TODO Why ii has postfix as Test?
     public void underIconsTextAssertion(int id, String path, String text) {
         assertEquals(getUnderIconText(id, path), text);
     }
 
     //9.Assert a text of the main headers
+    // TODO Why ii has postfix as Test?
     public void mainHeaderTextAssertion(String name, String expectedText) {
         driver.findElements(By.name(name));
         assertEquals(driver.findElement(By.name(name)).getText(), expectedText);
