@@ -1,6 +1,8 @@
 package hw2.ex2;
 
 import hw2.base.BaseTest;
+import hw2.ex2.enums.CheckboxesAndRadios;
+import hw2.ex2.enums.PathForItemsOfDifferentElementsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -32,8 +34,8 @@ public class Ex2Methods extends BaseTest {
         getElementByPath(dropdownXpath).click();
         List<WebElement> elements = driver.findElements(By.xpath(elementsXpath));
         for (int i = 0; i < elements.size(); i++) {
-            // TODO How we compare Strings in Java
-            if (elements.get(i).getText() == "DIFFERENT ELEMENTS") {
+            // TODO How we compare Strings in Java [FIXED]
+            if (elements.get(i).getText().equals("Different elements")) {
                 elements.get(i).click();
             }
         }
@@ -41,19 +43,20 @@ public class Ex2Methods extends BaseTest {
     }
 
     //8.Check interface on Different elements page, it contains all needed elements
-    // TODO What is the difference between this method and amountOfDropdownsAndButtonsAssertion
-    public void amountOfCheckboxesAndRadiosAssertion(String className, int expectedAmount) {
+    // TODO What is the difference between this method and amountOfDropdownsAndButtonsAssertion[FIXED]
+    public void amountOfElementsAssertion(String path, int expectedAmount, String typeOfLocator) {
         openPage("https://epam.github.io/JDI/different-elements.html");
-        List<WebElement> elements = driver.findElements(By.className(className));
-        assertEquals(elements.size(), expectedAmount);
+        List<WebElement> elements;
+        if (typeOfLocator.equals("xpath")) {
+            elements = driver.findElements(By.xpath(path));
+        } else {
+            elements = driver.findElements(By.className(path));
+        }
+        int amount = elements.size();
+        assertEquals(amount, expectedAmount);
     }
 
-    // TODO What is the difference between this method and amountOfCheckboxesAndRadiosAssertion
-    public void amountOfDropdownsAndButtonsAssertion(String path, int expectedAmount) {
-        openPage("https://epam.github.io/JDI/different-elements.html");
-        List<WebElement> elements = driver.findElements(By.xpath(path));
-        assertEquals(elements.size(), expectedAmount);
-    }
+    // TODO What is the difference between this method and amountOfCheckboxesAndRadiosAssertion[FIXED]
 
     //9.Assert that there is Right Section
     //10.Assert that there is Right Section
@@ -64,7 +67,13 @@ public class Ex2Methods extends BaseTest {
     //11.Select checkboxes
     // 13.Select radio
     //17.Unselect and assert checkboxes
-    public void checkboxAndRadioSelection(String path, boolean checked) {
+    public void checkboxAndRadioSelection(String name, boolean checked) {
+        String path="";
+        for (CheckboxesAndRadios item : CheckboxesAndRadios.values()) {
+            if (item.name().equals(name)) {
+                path=item.getPath();
+            }
+        }
         WebElement element = getElementByPath(path);
         element.click();
         if (checked) {
