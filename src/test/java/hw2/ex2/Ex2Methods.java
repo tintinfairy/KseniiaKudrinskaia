@@ -11,12 +11,8 @@ import static org.testng.Assert.*;
 
 public class Ex2Methods extends BaseTest {
 
-    // TODO Why this field is required? [FIXED]
-
-
     //5.Click on "Service" subcategory in the header and check that drop down contains options
     //6.Click on Service subcategory in the left section and check that drop down contains options
-    // TODO Why ii has postfix as Test? [FIXED]
     public void amountOfServiceHeadersAssertion(String dropdownXpath, String elementsXpath, List<String> elementsOfDropdown) {
         int count = 0;
         getElementByPath(dropdownXpath).click();
@@ -28,7 +24,6 @@ public class Ex2Methods extends BaseTest {
                 }
             }
         }
-        // TODO Why this method required [FIXED]
         assertEquals(count, 6);
     }
 
@@ -37,6 +32,7 @@ public class Ex2Methods extends BaseTest {
         getElementByPath(dropdownXpath).click();
         List<WebElement> elements = driver.findElements(By.xpath(elementsXpath));
         for (int i = 0; i < elements.size(); i++) {
+            // TODO How we compare Strings in Java
             if (elements.get(i).getText() == "DIFFERENT ELEMENTS") {
                 elements.get(i).click();
             }
@@ -45,14 +41,14 @@ public class Ex2Methods extends BaseTest {
     }
 
     //8.Check interface on Different elements page, it contains all needed elements
+    // TODO What is the difference between this method and amountOfDropdownsAndButtonsAssertion
     public void amountOfCheckboxesAndRadiosAssertion(String className, int expectedAmount) {
         openPage("https://epam.github.io/JDI/different-elements.html");
-        // TODO May be it is better use enum? [FIXED]
-        // TODO By Java code convention it should looks like "xpath".equals(typeOfLocator) [FIXED]
         List<WebElement> elements = driver.findElements(By.className(className));
         assertEquals(elements.size(), expectedAmount);
     }
 
+    // TODO What is the difference between this method and amountOfCheckboxesAndRadiosAssertion
     public void amountOfDropdownsAndButtonsAssertion(String path, int expectedAmount) {
         openPage("https://epam.github.io/JDI/different-elements.html");
         List<WebElement> elements = driver.findElements(By.xpath(path));

@@ -11,8 +11,9 @@ import static org.testng.Assert.assertEquals;
 public class Ex1Methods extends BaseTest {
 
     //6. Assert that there are 4 items on the header section are displayed and they have proper texts
-    // TODO Why ii has postfix as Test? [FIXED]
     public void headerSectionElementsAssertion(String path, String expectedHeader) {
+        // TODO You try get same element twice
+        // TODO If you make variable here it will be better
         getElementByPath(path).isDisplayed();
         assertEquals(getElementByPath(path).getText(), expectedHeader);
 
@@ -20,7 +21,6 @@ public class Ex1Methods extends BaseTest {
 
 
     //7.Assert that there are 4 images on the Index Page and they are displayed
-    // TODO Why ii has postfix as Test? [FIXED]
     public void imageIndexPageAssertion() {
 
         List<WebElement> images = driver.findElements(By.className("benefit-icon"));
@@ -31,25 +31,22 @@ public class Ex1Methods extends BaseTest {
     }
 
     //8.Assert that there are 4 texts on the Index Page under icons and they have proper text
-    // TODO Why ii has postfix as Test?[FIXED]
     public void amountUnderIconsTextAssertion(String path) {
         List<WebElement> allUnderIconsText = driver.findElements(By.xpath(path));
         assertEquals(allUnderIconsText.size(), 4);
     }
 
-    // TODO Why ii has postfix as Test?[FIXED]
     public String getUnderIconText(int i, String path) {
+        // TODO This varaible is redundant here
         List<WebElement> allUnderIconsText = driver.findElements(By.xpath(path));
         return allUnderIconsText.get(i).getText();
     }
 
-    // TODO Why ii has postfix as Test?[FIXED]
     public void underIconsTextAssertion(int id, String path, String text) {
         assertEquals(getUnderIconText(id, path), text);
     }
 
     //9.Assert a text of the main headers
-    // TODO Why ii has postfix as Test? [FIXED]
     public void mainHeaderTextAssertion(String name, String expectedText) {
         driver.findElements(By.name(name));
         assertEquals(driver.findElement(By.name(name)).getText(), expectedText);
