@@ -46,7 +46,6 @@ public class BaseTest {
         return driver.findElement(By.id(id));
     }
 
-    // TODO Why it classificator not selector? [FIXED]
     protected WebElement getElementByCssSelector(String cssSelector) {
 
         return driver.findElement(By.cssSelector(cssSelector));
@@ -54,7 +53,6 @@ public class BaseTest {
 
 
     public void setUpDriverPath() {
-        // TODO Why do you decide not split driver path and driver initialization? [FIXED]
         System.setProperty("webdriver.chrome.driver",
                 Paths.get("src/test/resources/driver/chromedriver.exe")
                         .toAbsolutePath().toString());
@@ -72,14 +70,11 @@ public class BaseTest {
 
 
     //2. Assert browser title
-    // TODO I do not get method name [FIXED]
-    // TODO Why ii has postfix as Test? [FIXED]
     public void pageTitleAssertion(String pageName) {
         assertEquals(driver.getTitle(), pageName);
     }
 
     //3. Perform login
-    // TODO Why ii has postfix as Test? [FIXED]
     public void login(String name, String password) {
         getElementById("user-icon").click();
         getElementById("name").sendKeys(name);
@@ -88,7 +83,6 @@ public class BaseTest {
     }
 
     //4.Assert User name in left-top side of screen that user is logged
-    // TODO Why ii has postfix as Test? [FIXED]
     public void usernameAssertion(String userName) {
         assertEquals(getElementById("user-name")
                 .getText(), userName);

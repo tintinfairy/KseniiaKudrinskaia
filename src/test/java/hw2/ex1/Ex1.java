@@ -11,13 +11,6 @@ public class Ex1 extends BaseTest {
 
         Ex1Methods methods = new Ex1Methods();
 
-        // TODO Code duplication Ex2
-        // TODO Code duplication Ex2
-        // TODO Code duplication Ex2
-        // TODO Code duplication Ex2
-        //Fixed in hw2.base.BaseTest.class
-
-
         //5. Assert browser title
         pageTitleAssertion("Home Page");
 

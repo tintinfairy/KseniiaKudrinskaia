@@ -13,16 +13,6 @@ public class Ex2 extends BaseTest {
     @Test
     public void main() {
         Ex2Methods methods = new Ex2Methods();
-        // TODO Code duplication Ex1
-
-        // TODO Code duplication Ex1
-
-        // TODO Code duplication Ex1
-
-        // TODO Code duplication Ex1
-
-        // TODO Code duplication Ex1
-
         //Fixed in hw2.base.BaseTest.class
 
         //5.Click on "Service" subcategory in the header and check that drop down contains options
@@ -49,6 +39,7 @@ public class Ex2 extends BaseTest {
         methods.assertSections("mCSB_1");
 
         //11.Select checkboxes
+        // TODO Is it possible made checkbox name as a parameter?
         methods.checkboxAndRadioSelection("//label[contains(.,'Water')]/input", true);
         methods.checkboxAndRadioSelection("//label[contains(.,'Wind')]/input", true);
 
@@ -57,6 +48,7 @@ public class Ex2 extends BaseTest {
         methods.logRowAssertionCheckboxes("//ul[@class='panel-body-list logs']/li", "Wind", "//label[contains(.,'Wind')]/input", true);
 
         //13.Select radio
+        // TODO Is it possible made checkbox name as a parameter?
         methods.checkboxAndRadioSelection("//label[contains(.,'Selen')]/input", true);
 
         //14.Assert that for radiobutton there is a log row and value is corresponded to the status of radiobutton.
@@ -69,15 +61,13 @@ public class Ex2 extends BaseTest {
         methods.logRowAssertionDropdowns("//ul[@class='panel-body-list logs']/li", "Yellow");
 
         //17.Unselect and assert checkboxes
+        // TODO Is it possible made checkbox name as a parameter?
         methods.checkboxAndRadioSelection("//label[contains(.,'Water')]/input", false);
+        // TODO Is it possible made checkbox name as a parameter?
         methods.checkboxAndRadioSelection("//label[contains(.,'Wind')]/input", false);
 
         //18.Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.
         methods.logRowAssertionCheckboxes("//ul[@class='panel-body-list logs']/li", "Water", "//label[contains(.,'Water')]/input", false);
         methods.logRowAssertionCheckboxes("//ul[@class='panel-body-list logs']/li", "Wind", "//label[contains(.,'Wind')]/input", false);
-
-        // TODO Code duplication Ex1 [FIXED]
-
-
     }
 }
