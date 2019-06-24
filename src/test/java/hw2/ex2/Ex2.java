@@ -41,7 +41,6 @@ public class Ex2 extends BaseTest {
 
 
         //11.Select checkboxes
-        // TODO Is it possible made checkbox name as a parameter?[FIXED]
         methods.checkboxAndRadioSelection("WATER", true);
         methods.checkboxAndRadioSelection("WIND", true);
 
@@ -50,7 +49,6 @@ public class Ex2 extends BaseTest {
         methods.logRowAssertionCheckboxes("//ul[@class='panel-body-list logs']/li", "Wind",  CheckboxesAndRadios.WIND.getPath(), true);
 
         //13.Select radio
-        // TODO Is it possible made checkbox name as a parameter?[FIXED]
         methods.checkboxAndRadioSelection("SELEN", true);
 
         //14.Assert that for radiobutton there is a log row and value is corresponded to the status of radiobutton.
@@ -63,9 +61,7 @@ public class Ex2 extends BaseTest {
         methods.logRowAssertionDropdowns("//ul[@class='panel-body-list logs']/li", "Yellow");
 
         //17.Unselect and assert checkboxes
-        // TODO Is it possible made checkbox name as a parameter?[FIXED]
         methods.checkboxAndRadioSelection("WATER", false);
-        // TODO Is it possible made checkbox name as a parameter?[FIXED]
         methods.checkboxAndRadioSelection("WIND", false);
 
         //18.Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.

@@ -12,9 +12,8 @@ public class Ex1Methods extends BaseTest {
 
     //6. Assert that there are 4 items on the header section are displayed and they have proper texts
     public void headerSectionElementsAssertion(String path, String expectedHeader) {
-        // TODO You try get same element twice [FIXED]
-        // TODO If you make variable here it will be better [FIXED]
         WebElement headerSectionElement =  getElementByPath(path);
+        // TODO What is the purpose of the using headerSectionElement.isDisplayed()?
         headerSectionElement.isDisplayed();
         assertEquals(headerSectionElement.getText(), expectedHeader);
     }
@@ -24,6 +23,7 @@ public class Ex1Methods extends BaseTest {
 
         List<WebElement> images = driver.findElements(By.className("benefit-icon"));
         for (WebElement imageFromList : images) {
+            // TODO What is the purpose of the using imageFromList.isDisplayed()?
             imageFromList.isDisplayed();
         }
         assertEquals(images.size(), 4);
@@ -36,7 +36,6 @@ public class Ex1Methods extends BaseTest {
     }
 
     public String getUnderIconText(int i, String path) {
-        // TODO This varaible is redundant here[FIXED]
         return driver.findElements(By.xpath(path)).get(i).getText();
     }
 
