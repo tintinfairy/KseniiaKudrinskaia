@@ -2,7 +2,6 @@ package hw2.ex2;
 
 import hw2.base.BaseTest;
 import hw2.ex2.enums.CheckboxesAndRadios;
-import hw2.ex2.enums.PathForItemsOfDifferentElementsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
