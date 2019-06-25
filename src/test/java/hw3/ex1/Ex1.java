@@ -18,6 +18,7 @@ public class Ex1 extends BaseTest {
 
         //6. Assert that there are 4 items on the header section are displayed and they have proper texts
         methods.headerItemsAreDisplayed();
+        // TODO Why do ou do not use collection here?
         methods.headerSectionElementsAssertion("Home");
         methods.headerSectionElementsAssertion("Contact form");
         methods.headerSectionElementsAssertion("Service");
@@ -40,6 +41,8 @@ public class Ex1 extends BaseTest {
                 "wish to get more…";
 
         methods.amountOfUnderImagesTextFieldsAssertion(path);
+        // TODO Why do you not use collection here?
+        // TODO it looks like hard-code using indexes here
         methods.underIconsTextAssertion(0, microscopeText);
         methods.underIconsTextAssertion(1, headphoneText);
         methods.underIconsTextAssertion(2, computerText);

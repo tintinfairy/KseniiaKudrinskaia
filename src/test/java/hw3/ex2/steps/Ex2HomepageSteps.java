@@ -7,6 +7,9 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
+// TODO All steps should be in the one package
+// TODO This class looks like code duplication for the Ex1HomepageSteps
+// TODO I think that they could be combined into one class
 public class Ex2HomepageSteps extends BaseTest {
 
     HomePage homePage = new HomePage(driver);
