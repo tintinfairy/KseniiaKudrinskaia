@@ -39,21 +39,14 @@ public class Ex2Methods extends BaseTest {
         }
 
     }
+    //(By xString path, int expectedAmount, String typeOfLocator)
 
     //8.Check interface on Different elements page, it contains all needed elements
-    // TODO It will be better use By as first parameter instead of String path & String typeOfLocator
+    // TODO It will be better use By as first parameter instead of String path & String typeOfLocator[FIXED]
     // TODO Method will be more flexible
-    public void amountOfElementsAssertion(String path, int expectedAmount, String typeOfLocator) {
-        openPage("https://epam.github.io/JDI/different-elements.html");
-        List<WebElement> elements;
-        if (typeOfLocator.equals("xpath")) {
-            elements = driver.findElements(By.xpath(path));
-        } else {
-            elements = driver.findElements(By.className(path));
-        }
-        // TODO Is this variable required here?
-        int amount = elements.size();
-        assertEquals(amount, expectedAmount);
+    public void amountOfElementsAssertion(By by, int expectedAmount){
+        // TODO Is this variable required here?[FIXED]
+        assertEquals(driver.findElements(by).size(), expectedAmount);
     }
 
 

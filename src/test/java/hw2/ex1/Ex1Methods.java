@@ -12,21 +12,14 @@ public class Ex1Methods extends BaseTest {
 
     //6. Assert that there are 4 items on the header section are displayed and they have proper texts
     public void headerSectionElementsAssertion(String path, String expectedHeader) {
-        WebElement headerSectionElement =  getElementByPath(path);
-        // TODO What is the purpose of the using headerSectionElement.isDisplayed()?
-        headerSectionElement.isDisplayed();
-        assertEquals(headerSectionElement.getText(), expectedHeader);
+        // TODO What is the purpose of the using headerSectionElement.isDisplayed()?[FIXED]
+        assertEquals(getElementByPath(path).getText(), expectedHeader);
     }
 
     //7.Assert that there are 4 images on the Index Page and they are displayed
     public void imageIndexPageAssertion() {
-
-        List<WebElement> images = driver.findElements(By.className("benefit-icon"));
-        for (WebElement imageFromList : images) {
-            // TODO What is the purpose of the using imageFromList.isDisplayed()?
-            imageFromList.isDisplayed();
-        }
-        assertEquals(images.size(), 4);
+            // TODO What is the purpose of the using imageFromList.isDisplayed()?[FIXED]
+        assertEquals(driver.findElements(By.className("benefit-icon")).size(), 4);
     }
 
     //8.Assert that there are 4 texts on the Index Page under icons and they have proper text

@@ -1,12 +1,14 @@
-package hw3.ex1.steps;
+package hw3.steps;
 
 import hw3.base.BaseTest;
 import hw3.voids.HomePage;
 
+import java.util.List;
+
 import static org.testng.Assert.assertEquals;
 
-// TODO All steps should be in the one package
-public class Ex1HomePageSteps extends BaseTest {
+// TODO All steps should be in the one package[FIXED]
+public class HomePageSteps extends BaseTest {
 
     HomePage homePage = new HomePage(driver);
 
@@ -27,12 +29,14 @@ public class Ex1HomePageSteps extends BaseTest {
     }
 
     //8.Assert that there are 4 texts on the Index Page under icons and they have proper text
-    public void amountOfUnderImagesTextFieldsAssertion(String path) {
+    public void amountOfUnderImagesTextFieldsAssertion() {
         assertEquals(homePage.getAmountOfTextFieldsUnderImages(), 4);
     }
 
-    public void underIconsTextAssertion(int id, String text) {
-        assertEquals(homePage.getTextUnderImages(id), text);
+    public void underIconsTextAssertion(List<String> text) {
+        for (int i = 0; i < text.size(); i++) {
+            assertEquals(homePage.getTextUnderImages(i), text.get(i));
+        }
     }
 
     //9.Assert a text of the main headers
@@ -78,6 +82,28 @@ public class Ex1HomePageSteps extends BaseTest {
     //16.Assert that there is Footer
     public void footerAssert() {
         homePage.footerIsDisplayed();
+    }
+
+    // TODO All steps should be in the one package[FIXED]
+// TODO This class looks like code duplication for the Ex1HomepageSteps[FIXED]
+// TODO I think that they could be combined into one class[FIXED]
+
+    //5.Click on "Service" subcategory in the header and check that drop down contains options
+    public void amountOfServiceHeadersAssertion(List<String> elementsOfDropdown) {
+        homePage.clickServiceHeader();
+        assertEquals(homePage.getAmountOfContainingElements(homePage.getServiceDropdownElements(), elementsOfDropdown), 6);
+    }
+
+    //6.Click on Service subcategory in the left section and check that drop down contains options
+    public void amountOfServiceLeftSectionHeadersAssertion(List<String> elementsOfDropdown) {
+        homePage.clickLeftSideServiceHeader();
+        assertEquals(homePage.getAmountOfContainingElements(homePage.getServiceLeftDropdownElements(), elementsOfDropdown), 6);
+    }
+
+    //7.Open through the header menu Service -> Different Elements Page
+    public void openServicePages(String element) {
+        homePage.clickServiceHeader();
+        homePage.clickAppropriateElementOfDropdown(element);
     }
 
 

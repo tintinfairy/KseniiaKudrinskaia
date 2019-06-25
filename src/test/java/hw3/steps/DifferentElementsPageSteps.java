@@ -1,12 +1,12 @@
-package hw3.ex2.steps;
+package hw3.steps;
 
 import hw3.base.BaseTest;
 import hw3.voids.DifferentElementsPage;
 
 import static org.testng.Assert.*;
 
-// TODO All steps should be in the one package
-public class Ex2DifferentElementsPageSteps extends BaseTest {
+// TODO All steps should be in the one package[FIXED]
+public class DifferentElementsPageSteps extends BaseTest {
     DifferentElementsPage differentElementsPage = new DifferentElementsPage(driver);
 
 
@@ -38,15 +38,13 @@ public class Ex2DifferentElementsPageSteps extends BaseTest {
     }
 
     //11.Select checkboxes
-    public void selectWindAndWaterCheckboxes() {
-        differentElementsPage.selectWaterCheckbox();
-        differentElementsPage.selectWindCheckbox();
-
+    // 13.Select radio
+    public void selectRadioOrCheckbox(String nameOfElement) {
+        differentElementsPage.selectRadioOrCheckbox(nameOfElement);
     }
 
-    public void checkboxesAreSelected() {
-        assertTrue(differentElementsPage.waterCheckboxIsSelected());
-        assertTrue(differentElementsPage.windCheckboxIsSelected());
+    public void checkboxOrRadioIsSelected(String nameOfElement) {
+        assertTrue(differentElementsPage.checkboxOrRadioIsSelected(nameOfElement));
 
     }
 
@@ -64,12 +62,6 @@ public class Ex2DifferentElementsPageSteps extends BaseTest {
         assertTrue(flag);
     }
 
-    // 13.Select radio
-    public void selectSelenRadio() {
-        differentElementsPage.selectSelenRadio();
-        assertTrue(differentElementsPage.selenRadioIsSelected());
-
-    }
 
     //15.Select in dropdown
     public void dropdownElementSelection(String element) {
@@ -77,8 +69,7 @@ public class Ex2DifferentElementsPageSteps extends BaseTest {
     }
 
     //17.Unselect and assert checkboxes
-    public void checkboxesAreUnselected() {
-        assertFalse(differentElementsPage.waterCheckboxIsSelected());
-        assertFalse(differentElementsPage.windCheckboxIsSelected());
+    public void checkboxOrRadioIsUnselected(String nameOfElement) {
+        assertFalse(differentElementsPage.checkboxOrRadioIsSelected(nameOfElement));
     }
 }

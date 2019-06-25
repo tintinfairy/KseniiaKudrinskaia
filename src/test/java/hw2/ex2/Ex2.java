@@ -4,6 +4,7 @@ import hw2.base.BaseTest;
 import hw2.ex2.enums.CheckboxesAndRadios;
 import hw2.ex2.enums.ExpectedAmountOfItemsOfDifferentElementsPage;
 import hw2.ex2.enums.PathForItemsOfDifferentElementsPage;
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
@@ -28,11 +29,12 @@ public class Ex2 extends BaseTest {
         methods.openServicePages("//a[text()[contains(., 'Service')]]", "//ul[contains(@class,'dropdown-menu')]/li/a");
 
         //8.Check interface on Different elements page, it contains all needed elements
-        methods.amountOfElementsAssertion(PathForItemsOfDifferentElementsPage.CHECKBOX.getPath(), ExpectedAmountOfItemsOfDifferentElementsPage.CHECKBOX
-                .getAmount(), "className");
-        methods.amountOfElementsAssertion(PathForItemsOfDifferentElementsPage.RADIO.getPath(), ExpectedAmountOfItemsOfDifferentElementsPage.RADIO.getAmount(), "className");
-        methods.amountOfElementsAssertion(PathForItemsOfDifferentElementsPage.DROPDOWN.getPath(), ExpectedAmountOfItemsOfDifferentElementsPage.DROPDOWN.getAmount(), "xpath");
-        methods.amountOfElementsAssertion(PathForItemsOfDifferentElementsPage.BUTTON.getPath(), ExpectedAmountOfItemsOfDifferentElementsPage.BUTTON.getAmount(), "xpath");
+        openPage("https://epam.github.io/JDI/different-elements.html");
+        methods.amountOfElementsAssertion(By.className(PathForItemsOfDifferentElementsPage.CHECKBOX.getPath()), ExpectedAmountOfItemsOfDifferentElementsPage.CHECKBOX
+                .getAmount());
+        methods.amountOfElementsAssertion(By.className(PathForItemsOfDifferentElementsPage.RADIO.getPath()), ExpectedAmountOfItemsOfDifferentElementsPage.RADIO.getAmount());
+        methods.amountOfElementsAssertion(By.xpath(PathForItemsOfDifferentElementsPage.DROPDOWN.getPath()), ExpectedAmountOfItemsOfDifferentElementsPage.DROPDOWN.getAmount());
+        methods.amountOfElementsAssertion(By.xpath(PathForItemsOfDifferentElementsPage.BUTTON.getPath()), ExpectedAmountOfItemsOfDifferentElementsPage.BUTTON.getAmount());
 
         //9.Assert that there is Right Section
         //10.Assert that there is Right Section

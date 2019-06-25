@@ -18,17 +18,17 @@ public class BaseTest {
 
     protected static WebDriver driver;
     HomePage hp;
+    String logName;
+    String password;
+    String userName;
+
 
     @BeforeMethod
     public void commonMethodsForEx1Ex2() throws IOException {
 
-        // TODO It will be better if you extracted this peace of code to the separate method with file name as parameter
+        // TODO It will be better if you extracted this peace of code to the separate method with file name as parameter[FIXED]
         // TODO It allow you use diiferent user
-        Properties properties = new Properties();
-        properties.load(new FileInputStream(new File("userdata.properties")));
-        String logName = properties.getProperty("logname");
-        String password = properties.getProperty("password");
-        String userName = properties.getProperty("username");
+        loadUserDataFromPropertiesFile("userdata.properties");
 
         //SetUp
         setUpDriverPath();
@@ -52,6 +52,14 @@ public class BaseTest {
     public void setUpDriver() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+    }
+
+    public void loadUserDataFromPropertiesFile(String pathname) throws IOException {
+        Properties properties = new Properties();
+        properties.load(new FileInputStream(new File(pathname)));
+        logName = properties.getProperty("logname");
+        password = properties.getProperty("password");
+        userName = properties.getProperty("username");
     }
 
     //1. Open test site by URL

@@ -2,8 +2,8 @@ package hw3.ex2;
 
 import hw3.base.BaseTest;
 import hw3.ex2.enums.ExpectedAmountOfItemsOfDifferentElementsPage;
-import hw3.ex2.steps.Ex2DifferentElementsPageSteps;
-import hw3.ex2.steps.Ex2HomepageSteps;
+import hw3.steps.DifferentElementsPageSteps;
+import hw3.steps.HomePageSteps;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
@@ -13,67 +13,72 @@ import java.util.List;
 public class Ex2 extends BaseTest {
     @Test
     public void main() {
-        Ex2HomepageSteps ex2HomepageSteps = new Ex2HomepageSteps();
-        Ex2DifferentElementsPageSteps ex2DifferentElementsPageSteps = new Ex2DifferentElementsPageSteps();
+        HomePageSteps homepageSteps = new HomePageSteps();
+        DifferentElementsPageSteps differentElementsPageSteps = new DifferentElementsPageSteps();
 
         //5.Click on "Service" subcategory in the header and check that drop down contains options
         List<String> elementsOfHeaderDropdown = Arrays.asList("SUPPORT", "DATES", "COMPLEX TABLE", "SIMPLE TABLE", "TABLE WITH PAGES", "DIFFERENT ELEMENTS");
-        ex2HomepageSteps.amountOfServiceHeadersAssertion(elementsOfHeaderDropdown);
+        homepageSteps.amountOfServiceHeadersAssertion(elementsOfHeaderDropdown);
 
         //6. Click on Service subcategory in the left section and check that drop down contains options
         List<String> elementsOfSubDropdown = Arrays.asList("Support", "Dates", "Complex Table", "Simple Table", "Table with pages", "Different elements");
-        ex2HomepageSteps.amountOfServiceLeftSectionHeadersAssertion(elementsOfSubDropdown);
+        homepageSteps.amountOfServiceLeftSectionHeadersAssertion(elementsOfSubDropdown);
 
         //7.Open through the header menu Service -> Different Elements Page
-        ex2HomepageSteps.openServicePages("DIFFERENT ELEMENTS");
+        homepageSteps.openServicePages("Different elements");
 
         //8.Check interface on Different elements page, it contains all needed elements
         openPage("https://epam.github.io/JDI/different-elements.html");
-        ex2DifferentElementsPageSteps.amountOfCheckboxeAssertion(ExpectedAmountOfItemsOfDifferentElementsPage.CHECKBOX
+        differentElementsPageSteps.amountOfCheckboxeAssertion(ExpectedAmountOfItemsOfDifferentElementsPage.CHECKBOX
                 .getAmount());
-        ex2DifferentElementsPageSteps.amountOfRadiosAssertion(ExpectedAmountOfItemsOfDifferentElementsPage.RADIO.getAmount());
-        ex2DifferentElementsPageSteps.amountOfDropdownsAssertion(ExpectedAmountOfItemsOfDifferentElementsPage.DROPDOWN.getAmount());
-        ex2DifferentElementsPageSteps.amountOfButtonsAssertion(ExpectedAmountOfItemsOfDifferentElementsPage.BUTTON.getAmount());
+        differentElementsPageSteps.amountOfRadiosAssertion(ExpectedAmountOfItemsOfDifferentElementsPage.RADIO.getAmount());
+        differentElementsPageSteps.amountOfDropdownsAssertion(ExpectedAmountOfItemsOfDifferentElementsPage.DROPDOWN.getAmount());
+        differentElementsPageSteps.amountOfButtonsAssertion(ExpectedAmountOfItemsOfDifferentElementsPage.BUTTON.getAmount());
 
         //9.Assert that there is Right Section
-        ex2DifferentElementsPageSteps.assertRightSection();
+        differentElementsPageSteps.assertRightSection();
 
         //10.Assert that there is Left Section
-        ex2DifferentElementsPageSteps.assertLeftSection();
+        differentElementsPageSteps.assertLeftSection();
 
         //11.Select checkboxes
-        // TODO I suggest send name of the checkboxes as a parameter to the method
-        // TODO It will be more flexible in this case
-        ex2DifferentElementsPageSteps.selectWindAndWaterCheckboxes();
-        ex2DifferentElementsPageSteps.checkboxesAreSelected();
+        // TODO I suggest send name of the checkboxes as a parameter to the method[FIXED]
+        // TODO It will be more flexible in this case[FIXED]
+        differentElementsPageSteps.selectRadioOrCheckbox("Water");
+        differentElementsPageSteps.selectRadioOrCheckbox("Wind");
+        differentElementsPageSteps.checkboxOrRadioIsSelected("Water");
+        differentElementsPageSteps.checkboxOrRadioIsSelected("Wind");
 
         //12.Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.
-        ex2DifferentElementsPageSteps.logRowInformationAssertion("Water", "true");
-        ex2DifferentElementsPageSteps.logRowInformationAssertion("Wind", "true");
+        differentElementsPageSteps.logRowInformationAssertion("Water", "true");
+        differentElementsPageSteps.logRowInformationAssertion("Wind", "true");
 
         //13.Select radio
-        // TODO I suggest send name of the radio as a parameter to the method
-        // TODO It will be more flexible in this case
-        ex2DifferentElementsPageSteps.selectSelenRadio();
+        // TODO I suggest send name of the radio as a parameter to the method[FIXED]
+        // TODO It will be more flexible in this case[FIXED]
+        differentElementsPageSteps.selectRadioOrCheckbox("Selen");
+        differentElementsPageSteps.checkboxOrRadioIsSelected("Selen");
 
         //14.Assert that for radiobutton there is a log row and value is corresponded to the status of radiobutton.
-        ex2DifferentElementsPageSteps.logRowInformationAssertion("Selen", "");
+        differentElementsPageSteps.logRowInformationAssertion("Selen", "");
 
         //15.Select in dropdown
-        ex2DifferentElementsPageSteps.dropdownElementSelection("Yellow");
+        differentElementsPageSteps.dropdownElementSelection("Yellow");
 
         //16.Assert that for dropdown there is a log row and value is corresponded to the selected value.
-        ex2DifferentElementsPageSteps.logRowInformationAssertion("Yellow", "");
+        differentElementsPageSteps.logRowInformationAssertion("Yellow", "");
 
         //17.Unselect and assert checkboxes
-        // TODO I suggest send name of the checkboxes as a parameter to the method
-        // TODO It will be more flexible in this case
-        ex2DifferentElementsPageSteps.selectWindAndWaterCheckboxes();
-        ex2DifferentElementsPageSteps.checkboxesAreUnselected();
+        // TODO I suggest send name of the checkboxes as a parameter to the method[FIXED]
+        // TODO It will be more flexible in this case[FIXED]
+        differentElementsPageSteps.selectRadioOrCheckbox("Water");
+        differentElementsPageSteps.selectRadioOrCheckbox("Wind");
+        differentElementsPageSteps.checkboxOrRadioIsUnselected("Water");
+        differentElementsPageSteps.checkboxOrRadioIsUnselected("Wind");
 
         //18.Assert that for each checkbox there is an individual log row and value is corresponded to the status of checkbox.
-        ex2DifferentElementsPageSteps.logRowInformationAssertion("Water", "false");
-        ex2DifferentElementsPageSteps.logRowInformationAssertion("Wind", "false");
+        differentElementsPageSteps.logRowInformationAssertion("Water", "false");
+        differentElementsPageSteps.logRowInformationAssertion("Wind", "false");
 
 
     }

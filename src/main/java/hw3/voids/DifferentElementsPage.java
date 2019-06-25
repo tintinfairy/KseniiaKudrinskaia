@@ -72,20 +72,36 @@ public class DifferentElementsPage extends BasePage {
         leftSection.isDisplayed();
     }
 
-    public void selectWaterCheckbox() {
-        waterCheckbox.click();
+    public void selectRadioOrCheckbox(String name) {
+        switch (name) {
+            case "Water": {
+                waterCheckbox.click();
+                break;
+            }
+            case "Wind": {
+                windCheckbox.click();
+                break;
+            }
+            case "Selen": {
+                selenRadio.click();
+                break;
+            }
+        }
     }
 
-    public void selectWindCheckbox() {
-        windCheckbox.click();
-    }
-
-    public boolean waterCheckboxIsSelected() {
-        return waterCheckbox.isSelected();
-    }
-
-    public boolean windCheckboxIsSelected() {
-        return windCheckbox.isSelected();
+    public boolean checkboxOrRadioIsSelected(String name) {
+        switch (name) {
+            case "Water": {
+                return waterCheckbox.isSelected();
+            }
+            case "Wind": {
+                return windCheckbox.isSelected();
+            }
+            case "Selen": {
+                return selenRadio.isSelected();
+            }
+        }
+        return false;
     }
 
     public List<WebElement> getLogs() {
@@ -98,14 +114,6 @@ public class DifferentElementsPage extends BasePage {
 
     public String getLogsText(int i) {
         return logs.get(i).getText();
-    }
-
-    public void selectSelenRadio() {
-        selenRadio.click();
-    }
-
-    public boolean selenRadioIsSelected() {
-        return selenRadio.isSelected();
     }
 
     public void selectDropdownElement(String element) {

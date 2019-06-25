@@ -33,7 +33,7 @@ public class HomePage extends BasePage {
     private List<WebElement> images;
 
     // TODO className could be used here
-    @FindAll(@FindBy(xpath = "//span[contains(@class,'benefit-txt')]"))
+    @FindAll(@FindBy(className = "benefit-txt"))
     private List<WebElement> textUnderImages;
 
     @FindBy(name = "main-title")
@@ -68,6 +68,7 @@ public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
         super(driver);
     }
+
     //COMMON FOR EX1 & EX2
     public void login(String userName, String password) {
         userIcon.click();
@@ -157,7 +158,6 @@ public class HomePage extends BasePage {
     }
 
 
-
     //EX2
     public void clickServiceHeader() {
         serviceDropdown.click();
@@ -181,7 +181,8 @@ public class HomePage extends BasePage {
             for (WebElement element : listOfElements) {
                 if (element.getText().equals(expectedElements.get(i))) {
                     count++;
-                    // TODO break required here
+                    // TODO break required here [FIXED]
+                    break;
                 }
             }
         }
@@ -190,7 +191,7 @@ public class HomePage extends BasePage {
 
     public void clickAppropriateElementOfDropdown(String element) {
         for (int i = 0; i < serviceDropdownElements.size(); i++) {
-            if (serviceDropdownElements.get(i).getText().equals("Different elements")) {
+            if (serviceDropdownElements.get(i).getText().equals(element)) {
                 serviceDropdownElements.get(i).click();
             }
         }
