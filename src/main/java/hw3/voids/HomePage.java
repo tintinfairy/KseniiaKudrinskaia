@@ -32,6 +32,7 @@ public class HomePage extends BasePage {
     @FindAll(@FindBy(className = "benefit-icon"))
     private List<WebElement> images;
 
+    // TODO className could be used here
     @FindAll(@FindBy(xpath = "//span[contains(@class,'benefit-txt')]"))
     private List<WebElement> textUnderImages;
 
@@ -180,6 +181,7 @@ public class HomePage extends BasePage {
             for (WebElement element : listOfElements) {
                 if (element.getText().equals(expectedElements.get(i))) {
                     count++;
+                    // TODO break required here
                 }
             }
         }

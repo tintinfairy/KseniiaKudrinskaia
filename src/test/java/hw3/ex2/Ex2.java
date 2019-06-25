@@ -42,6 +42,8 @@ public class Ex2 extends BaseTest {
         ex2DifferentElementsPageSteps.assertLeftSection();
 
         //11.Select checkboxes
+        // TODO I suggest send name of the checkboxes as a parameter to the method
+        // TODO It will be more flexible in this case
         ex2DifferentElementsPageSteps.selectWindAndWaterCheckboxes();
         ex2DifferentElementsPageSteps.checkboxesAreSelected();
 
@@ -50,6 +52,8 @@ public class Ex2 extends BaseTest {
         ex2DifferentElementsPageSteps.logRowInformationAssertion("Wind", "true");
 
         //13.Select radio
+        // TODO I suggest send name of the radio as a parameter to the method
+        // TODO It will be more flexible in this case
         ex2DifferentElementsPageSteps.selectSelenRadio();
 
         //14.Assert that for radiobutton there is a log row and value is corresponded to the status of radiobutton.
@@ -62,6 +66,8 @@ public class Ex2 extends BaseTest {
         ex2DifferentElementsPageSteps.logRowInformationAssertion("Yellow", "");
 
         //17.Unselect and assert checkboxes
+        // TODO I suggest send name of the checkboxes as a parameter to the method
+        // TODO It will be more flexible in this case
         ex2DifferentElementsPageSteps.selectWindAndWaterCheckboxes();
         ex2DifferentElementsPageSteps.checkboxesAreUnselected();
 

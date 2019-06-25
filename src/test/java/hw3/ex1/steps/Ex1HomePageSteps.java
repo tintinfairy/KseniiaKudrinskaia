@@ -5,6 +5,7 @@ import hw3.voids.HomePage;
 
 import static org.testng.Assert.assertEquals;
 
+// TODO All steps should be in the one package
 public class Ex1HomePageSteps extends BaseTest {
 
     HomePage homePage = new HomePage(driver);

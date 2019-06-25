@@ -33,7 +33,6 @@ public class Ex2Methods extends BaseTest {
         getElementByPath(dropdownXpath).click();
         List<WebElement> elements = driver.findElements(By.xpath(elementsXpath));
         for (int i = 0; i < elements.size(); i++) {
-            // TODO How we compare Strings in Java [FIXED]
             if (elements.get(i).getText().equals("Different elements")) {
                 elements.get(i).click();
             }
@@ -42,7 +41,8 @@ public class Ex2Methods extends BaseTest {
     }
 
     //8.Check interface on Different elements page, it contains all needed elements
-    // TODO What is the difference between this method and amountOfDropdownsAndButtonsAssertion[FIXED]
+    // TODO It will be better use By as first parameter instead of String path & String typeOfLocator
+    // TODO Method will be more flexible
     public void amountOfElementsAssertion(String path, int expectedAmount, String typeOfLocator) {
         openPage("https://epam.github.io/JDI/different-elements.html");
         List<WebElement> elements;
@@ -51,11 +51,11 @@ public class Ex2Methods extends BaseTest {
         } else {
             elements = driver.findElements(By.className(path));
         }
+        // TODO Is this variable required here?
         int amount = elements.size();
         assertEquals(amount, expectedAmount);
     }
 
-    // TODO What is the difference between this method and amountOfCheckboxesAndRadiosAssertion[FIXED]
 
     //9.Assert that there is Right Section
     //10.Assert that there is Right Section
