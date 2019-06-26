@@ -1,6 +1,5 @@
 package hw3.voids;
 
-import hw3.enums.HeaderSections;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -86,24 +85,12 @@ public class HomePage extends BasePage {
     }
 
     //EX1
-    public void headerItemsAreDisplayed() {
-        for (WebElement item : headerItems) {
-            item.isDisplayed();
-        }
-
+    public String getHeaderName(int i) {
+        return headerItems.get(i).getText();
     }
 
-    public String getHeaderName(String name) {
-        for (HeaderSections item : HeaderSections.values()) {
-            if (item.getName().equals(name)) return item.getName();
-        }
-        return null;
-    }
-
-    public void imagesAreDisplayed() {
-        for (WebElement item : images) {
-            item.isDisplayed();
-        }
+    public int getNumberOfHeaders() {
+        return headerItems.size();
     }
 
     public int getAmountOfImages() {

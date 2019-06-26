@@ -20,13 +20,10 @@ public class Ex1 extends BaseTest {
         pageTitleAssertion("Home Page");
 
         //6. Assert that there are 4 items on the header section are displayed and they have proper texts
-        methods.headerItemsAreDisplayed();
         // TODO Why do ou do not use collection here? [FIXED]
-        List<String> itemsOfHeaderSection = Arrays.asList("Home", "Contact form", "Service", "Metals & Colors");
-        methods.headerSectionElementsAssertion(itemsOfHeaderSection.get(0));
-        methods.headerSectionElementsAssertion(itemsOfHeaderSection.get(1));
-        methods.headerSectionElementsAssertion(itemsOfHeaderSection.get(2));
-        methods.headerSectionElementsAssertion(itemsOfHeaderSection.get(3));
+        List<String> itemsOfHeaderSection = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
+        methods.amountOfHeadersAssertion();
+        methods.headerSectionElementsAssertion(itemsOfHeaderSection);
 
         //7.Assert that there are 4 images on the Index Page and they are displayed
         methods.imageIndexPageAssertion();

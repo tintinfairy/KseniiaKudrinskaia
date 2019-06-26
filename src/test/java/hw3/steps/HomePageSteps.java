@@ -13,18 +13,18 @@ public class HomePageSteps extends BaseTest {
     HomePage homePage = new HomePage(driver);
 
     //6. Assert that there are 4 items on the header section are displayed and they have proper texts
-    public void headerItemsAreDisplayed() {
-        homePage.headerItemsAreDisplayed();
+    public void amountOfHeadersAssertion() {
+        assertEquals(homePage.getNumberOfHeaders(), 4);
     }
 
-    public void headerSectionElementsAssertion(String expectedHeader) {
-        assertEquals(homePage.getHeaderName(expectedHeader), expectedHeader);
-
+    public void headerSectionElementsAssertion(List<String> headers) {
+        for (int i = 0; i < headers.size(); i++) {
+            assertEquals(homePage.getHeaderName(i), headers.get(i));
+        }
     }
 
     //7.Assert that there are 4 images on the Index Page and they are displayed
     public void imageIndexPageAssertion() {
-        homePage.imagesAreDisplayed();
         assertEquals(homePage.getAmountOfImages(), 4);
     }
 
