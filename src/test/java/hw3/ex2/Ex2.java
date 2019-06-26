@@ -18,11 +18,10 @@ public class Ex2 extends BaseTest {
 
         //5.Click on "Service" subcategory in the header and check that drop down contains options
         List<String> elementsOfHeaderDropdown = Arrays.asList("SUPPORT", "DATES", "COMPLEX TABLE", "SIMPLE TABLE", "TABLE WITH PAGES", "DIFFERENT ELEMENTS");
-        homepageSteps.amountOfServiceHeadersAssertion(elementsOfHeaderDropdown);
+        homepageSteps.serviceHeadersAssertion(elementsOfHeaderDropdown);
 
         //6. Click on Service subcategory in the left section and check that drop down contains options
-        List<String> elementsOfSubDropdown = Arrays.asList("Support", "Dates", "Complex Table", "Simple Table", "Table with pages", "Different elements");
-        homepageSteps.amountOfServiceLeftSectionHeadersAssertion(elementsOfSubDropdown);
+        homepageSteps.serviceLeftSectionHeadersAssertion(elementsOfHeaderDropdown);
 
         //7.Open through the header menu Service -> Different Elements Page
         homepageSteps.openServicePages("Different elements");

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage extends BasePage {
@@ -162,19 +163,17 @@ public class HomePage extends BasePage {
         return serviceLeftDropdownElements;
     }
 
-    public int getAmountOfContainingElements(List<WebElement> listOfElements, List<String> expectedElements) {
-        int count = 0;
-        for (int i = 0; i < expectedElements.size(); i++) {
-            for (WebElement element : listOfElements) {
-                if (element.getText().equals(expectedElements.get(i))) {
-                    count++;
-                    // TODO break required here [FIXED]
-                    break;
-                }
-            }
+    // TODO break required here [FIXED]
+
+    public List<String> getStringElementsOfServiceHeader(List<WebElement> actualHeaderItems) {
+        List<String> headerItems = new ArrayList<>();
+        for (int i = 0; i < actualHeaderItems.size(); i++) {
+            headerItems.add(actualHeaderItems.get(i).getText().toUpperCase());
         }
-        return count;
+        return headerItems;
     }
+
+
 
     public void clickAppropriateElementOfDropdown(String element) {
         for (int i = 0; i < serviceDropdownElements.size(); i++) {

@@ -5,6 +5,9 @@ import hw3.voids.HomePage;
 
 import java.util.List;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasItems;
+import static org.hamcrest.Matchers.isIn;
 import static org.testng.Assert.assertEquals;
 
 // TODO All steps should be in the one package[FIXED]
@@ -89,15 +92,15 @@ public class HomePageSteps extends BaseTest {
 // TODO I think that they could be combined into one class[FIXED]
 
     //5.Click on "Service" subcategory in the header and check that drop down contains options
-    public void amountOfServiceHeadersAssertion(List<String> elementsOfDropdown) {
+    public void serviceHeadersAssertion(List<String> elementsOfDropdown) {
         homePage.clickServiceHeader();
-        assertEquals(homePage.getAmountOfContainingElements(homePage.getServiceDropdownElements(), elementsOfDropdown), 6);
+        assertThat(elementsOfDropdown, hasItems(isIn(homePage.getStringElementsOfServiceHeader(homePage.getServiceDropdownElements()))));
     }
 
     //6.Click on Service subcategory in the left section and check that drop down contains options
-    public void amountOfServiceLeftSectionHeadersAssertion(List<String> elementsOfDropdown) {
+    public void serviceLeftSectionHeadersAssertion(List<String> elementsOfDropdown) {
         homePage.clickLeftSideServiceHeader();
-        assertEquals(homePage.getAmountOfContainingElements(homePage.getServiceLeftDropdownElements(), elementsOfDropdown), 6);
+        assertThat(elementsOfDropdown, hasItems(isIn(homePage.getStringElementsOfServiceHeader(homePage.getServiceLeftDropdownElements()))));
     }
 
     //7.Open through the header menu Service -> Different Elements Page
