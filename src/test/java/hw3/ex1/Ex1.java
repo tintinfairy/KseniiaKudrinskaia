@@ -20,7 +20,6 @@ public class Ex1 extends BaseTest {
         pageTitleAssertion("Home Page");
 
         //6. Assert that there are 4 items on the header section are displayed and they have proper texts
-        // TODO Why do ou do not use collection here? [FIXED]
         List<String> itemsOfHeaderSection = Arrays.asList("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
         methods.amountOfHeadersAssertion();
         methods.headerSectionElementsAssertion(itemsOfHeaderSection);
@@ -38,8 +37,6 @@ public class Ex1 extends BaseTest {
                 "wish to get more…");
 
         methods.amountOfUnderImagesTextFieldsAssertion();
-        // TODO Why do you not use collection here?[FIXED]
-        // TODO it looks like hard-code using indexes here[FIXED]
         methods.underIconsTextAssertion(underIconsText);
 
         //9.Assert a text of the main headers
