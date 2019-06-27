@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite5">
+    <test name="suite">
+        <classes>
+            <class name="hw4.ex1.Ex1"/>
+            <class name="hw4.ex2.Ex2"/>
+        </classes>
+    </test>
+
+</suite>
