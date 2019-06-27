@@ -41,8 +41,6 @@ public class Ex2 extends BaseTest {
         differentElementsPageSteps.assertLeftSection();
 
         //11.Select checkboxes
-        // TODO I suggest send name of the checkboxes as a parameter to the method[FIXED]
-        // TODO It will be more flexible in this case[FIXED]
         differentElementsPageSteps.selectRadioOrCheckbox("Water");
         differentElementsPageSteps.selectRadioOrCheckbox("Wind");
         differentElementsPageSteps.checkboxOrRadioIsSelected("Water");
@@ -53,8 +51,6 @@ public class Ex2 extends BaseTest {
         differentElementsPageSteps.logRowInformationAssertion("Wind", "true");
 
         //13.Select radio
-        // TODO I suggest send name of the radio as a parameter to the method[FIXED]
-        // TODO It will be more flexible in this case[FIXED]
         differentElementsPageSteps.selectRadioOrCheckbox("Selen");
         differentElementsPageSteps.checkboxOrRadioIsSelected("Selen");
 
@@ -68,8 +64,6 @@ public class Ex2 extends BaseTest {
         differentElementsPageSteps.logRowInformationAssertion("Yellow", "");
 
         //17.Unselect and assert checkboxes
-        // TODO I suggest send name of the checkboxes as a parameter to the method[FIXED]
-        // TODO It will be more flexible in this case[FIXED]
         differentElementsPageSteps.selectRadioOrCheckbox("Water");
         differentElementsPageSteps.selectRadioOrCheckbox("Wind");
         differentElementsPageSteps.checkboxOrRadioIsUnselected("Water");

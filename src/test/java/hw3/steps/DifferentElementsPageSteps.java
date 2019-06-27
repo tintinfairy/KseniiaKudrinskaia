@@ -5,7 +5,6 @@ import hw3.voids.DifferentElementsPage;
 
 import static org.testng.Assert.*;
 
-// TODO All steps should be in the one package[FIXED]
 public class DifferentElementsPageSteps extends BaseTest {
     DifferentElementsPage differentElementsPage = new DifferentElementsPage(driver);
 

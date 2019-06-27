@@ -26,8 +26,6 @@ public class BaseTest {
     @BeforeMethod
     public void commonMethodsForEx1Ex2() throws IOException {
 
-        // TODO It will be better if you extracted this peace of code to the separate method with file name as parameter[FIXED]
-        // TODO It allow you use diiferent user
         loadUserDataFromPropertiesFile("userdata.properties");
 
         //SetUp

@@ -10,7 +10,6 @@ import static org.hamcrest.Matchers.hasItems;
 import static org.hamcrest.Matchers.isIn;
 import static org.testng.Assert.assertEquals;
 
-// TODO All steps should be in the one package[FIXED]
 public class HomePageSteps extends BaseTest {
 
     HomePage homePage = new HomePage(driver);
@@ -86,10 +85,6 @@ public class HomePageSteps extends BaseTest {
     public void footerAssert() {
         homePage.footerIsDisplayed();
     }
-
-    // TODO All steps should be in the one package[FIXED]
-// TODO This class looks like code duplication for the Ex1HomepageSteps[FIXED]
-// TODO I think that they could be combined into one class[FIXED]
 
     //5.Click on "Service" subcategory in the header and check that drop down contains options
     public void serviceHeadersAssertion(List<String> elementsOfDropdown) {

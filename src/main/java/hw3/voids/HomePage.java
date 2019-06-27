@@ -32,7 +32,6 @@ public class HomePage extends BasePage {
     @FindAll(@FindBy(className = "benefit-icon"))
     private List<WebElement> images;
 
-    // TODO className could be used here
     @FindAll(@FindBy(className = "benefit-txt"))
     private List<WebElement> textUnderImages;
 
@@ -162,8 +161,6 @@ public class HomePage extends BasePage {
     public List<WebElement> getServiceLeftDropdownElements() {
         return serviceLeftDropdownElements;
     }
-
-    // TODO break required here [FIXED]
 
     public List<String> getStringElementsOfServiceHeader(List<WebElement> actualHeaderItems) {
         List<String> headerItems = new ArrayList<>();
