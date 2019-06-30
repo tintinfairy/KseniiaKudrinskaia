@@ -16,6 +16,7 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.title;
 import static org.testng.Assert.assertEquals;
 
+// TODO This class does not used
 public class BaseTestWithoutSteps {
     protected HomePage hp;
     String logName;
