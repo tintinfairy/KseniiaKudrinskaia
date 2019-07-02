@@ -17,7 +17,7 @@ public class Ex3 extends BaseTest {
     @Story(value = "Testing page https://epam.github.io/JDI/index.html")
     @Feature(value = "Ex1 test duplication which would fail")
     @Test
-    public void main() {
+    public void ex3() {
 
         HomePageSteps methods = new HomePageSteps();
 
