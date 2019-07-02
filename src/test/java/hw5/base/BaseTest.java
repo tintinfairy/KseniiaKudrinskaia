@@ -34,8 +34,9 @@ public class BaseTest {
         //SetUp
         setUpDriverPath();
         setUpDriver();
-        TestProvider.getInstance().setDriver(driver);
         hp = new HomePage(driver);
+        TestProvider.getInstance().setDriver(driver);
+
 
         //1. Open test site by URL
         openPage("https://epam.github.io/JDI");

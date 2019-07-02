@@ -15,9 +15,10 @@ import java.util.List;
 @Test
 @Listeners(AllureAttachmentListener.class)
 public class Ex1 extends BaseTest {
-    @Story(value = "Testing page https://epam.github.io/JDI/index.html")
-    @Feature(value = "Ex1 test")
+
     @Test
+    @Feature(value = "Ex1 test")
+    @Story(value = "Testing page https://epam.github.io/JDI/index.html")
     public void main() {
 
         HomePageSteps methods = new HomePageSteps();
