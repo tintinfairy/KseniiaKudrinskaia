@@ -4,6 +4,7 @@
         <classes>
             <class name="hw5.ex1.Ex1"/>
             <class name="hw5.ex2.Ex2"/>
+            <class name="hw5.ex3.Ex3"/>
         </classes>
     </test>
 
