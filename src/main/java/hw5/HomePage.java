@@ -70,7 +70,6 @@ public class HomePage extends BasePage {
     }
 
     //COMMON FOR EX1 & EX2
-    @Step("Perform login as {0}")
     public void login(String userName, String password) {
         userIcon.click();
         loginNameTextField.sendKeys(userName);

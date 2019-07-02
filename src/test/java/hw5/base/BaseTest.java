@@ -19,17 +19,17 @@ import static org.testng.Assert.assertEquals;
 public class BaseTest {
 
     protected static WebDriver driver;
-    static HomePage hp;
-    String logName="epam";
-    String password="1234";
-    String userName="PITER CHAILOVSKII";
+    protected static HomePage hp;
+    String logName;
+    String password;
+    String userName;
 
 
 
     @BeforeMethod
-    public void commonMethodsForEx1Ex2() throws IOException {
+    public void commonMethodsForEx1Ex2Ex3() throws IOException {
 
-        //loadUserDataFromPropertiesFile("userdata.properties");
+        loadUserDataFromPropertiesFile("userdata.properties");
 
         //SetUp
         setUpDriverPath();

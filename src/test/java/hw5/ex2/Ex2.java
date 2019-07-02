@@ -19,7 +19,7 @@ public class Ex2 extends BaseTest {
     @Story(value = "Testing page https://epam.github.io/JDI/index.html")
     @Feature(value = "Ex2 test")
     @Test
-    public void main() {
+    public void ex2() {
         HomePageSteps homepageSteps = new HomePageSteps();
         DifferentElementsPageSteps differentElementsPageSteps = new DifferentElementsPageSteps();
 
@@ -35,7 +35,7 @@ public class Ex2 extends BaseTest {
 
         //8.Check interface on Different elements page, it contains all needed elements
         openPage("https://epam.github.io/JDI/different-elements.html");
-        differentElementsPageSteps.amountOfCheckboxeAssertion(ExpectedAmountOfItemsOfDifferentElementsPage.CHECKBOX
+        differentElementsPageSteps.amountOfCheckboxAssertion(ExpectedAmountOfItemsOfDifferentElementsPage.CHECKBOX
                 .getAmount());
         differentElementsPageSteps.amountOfRadiosAssertion(ExpectedAmountOfItemsOfDifferentElementsPage.RADIO.getAmount());
         differentElementsPageSteps.amountOfDropdownsAssertion(ExpectedAmountOfItemsOfDifferentElementsPage.DROPDOWN.getAmount());
