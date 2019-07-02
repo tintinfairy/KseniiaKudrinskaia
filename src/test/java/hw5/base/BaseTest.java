@@ -20,16 +20,16 @@ public class BaseTest {
 
     protected static WebDriver driver;
     HomePage hp;
-    String logName;
-    String password;
-    String userName;
+    String logName="epam";
+    String password="1234";
+    String userName="PITER CHAILOVSKII";
 
 
 
     @BeforeMethod
     public void commonMethodsForEx1Ex2() throws IOException {
 
-        loadUserDataFromPropertiesFile("userdata.properties");
+        //loadUserDataFromPropertiesFile("userdata.properties");
 
         //SetUp
         setUpDriverPath();
