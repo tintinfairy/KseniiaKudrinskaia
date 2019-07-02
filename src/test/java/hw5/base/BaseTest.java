@@ -1,6 +1,7 @@
 package hw5.base;
 
 import hw5.HomePage;
+import hw5.TestProvider;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
@@ -24,6 +25,7 @@ public class BaseTest {
     String userName;
 
 
+
     @BeforeMethod
     public void commonMethodsForEx1Ex2() throws IOException {
 
@@ -32,6 +34,7 @@ public class BaseTest {
         //SetUp
         setUpDriverPath();
         setUpDriver();
+        TestProvider.getInstance().setDriver(driver);
         hp = new HomePage(driver);
 
         //1. Open test site by URL
