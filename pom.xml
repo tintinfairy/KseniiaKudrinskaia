@@ -17,7 +17,7 @@
 
         <allure.version>2.12.1</allure.version>
 
-        <aspectj.version>1.8.13</aspectj.version>
+        <aspectj.version>1.8.10</aspectj.version>
 
 
     </properties>

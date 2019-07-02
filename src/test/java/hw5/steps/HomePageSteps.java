@@ -1,6 +1,5 @@
 package hw5.steps;
 
-import hw5.HomePage;
 import hw5.base.BaseTest;
 import io.qameta.allure.Step;
 
@@ -12,8 +11,6 @@ import static org.hamcrest.Matchers.isIn;
 import static org.testng.Assert.assertEquals;
 
 public class HomePageSteps extends BaseTest {
-
-    HomePage homePage = new HomePage(driver);
 
     @Step("Assertion of amount of the header sections")
     //6. Assert that there are 4 items on the header section are displayed and they have proper texts
