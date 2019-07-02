@@ -11,7 +11,7 @@ public class DifferentElementsPageSteps extends BaseTest {
 
     @Step("Check amount of checkboxes on page")
     //8.Check interface on Different elements page, it contains all needed elements
-    public void amountOfCheckboxAssertion(int expectedAmount) {
+    public void amountOfCheckboxeAssertion(int expectedAmount) {
         assertEquals(differentElementsPage.getAmountOfCheckboxes(), expectedAmount);
     }
 

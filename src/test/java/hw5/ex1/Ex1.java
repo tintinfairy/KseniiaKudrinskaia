@@ -19,7 +19,7 @@ public class Ex1 extends BaseTest {
     @Test
     @Feature(value = "Ex1 test")
     @Story(value = "Testing page https://epam.github.io/JDI/index.html")
-    public void ex1() {
+    public void main() {
 
         HomePageSteps methods = new HomePageSteps();
 
