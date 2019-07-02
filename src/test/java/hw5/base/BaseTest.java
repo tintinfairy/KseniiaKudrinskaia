@@ -19,7 +19,7 @@ import static org.testng.Assert.assertEquals;
 public class BaseTest {
 
     protected static WebDriver driver;
-    HomePage hp;
+    static HomePage hp;
     String logName="epam";
     String password="1234";
     String userName="PITER CHAILOVSKII";
