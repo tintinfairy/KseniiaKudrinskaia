@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage extends BasePage {
-    //private WebDriver driver;
     //COMMON FOR EX1 & EX2
     @FindBy(id = "user-icon")
     private WebElement userIcon;

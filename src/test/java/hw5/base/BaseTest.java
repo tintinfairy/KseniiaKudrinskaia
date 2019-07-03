@@ -6,7 +6,9 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
 import java.io.File;
@@ -16,18 +18,18 @@ import java.util.Properties;
 
 import static org.testng.Assert.assertEquals;
 
-public class BaseTest {
+public abstract class BaseTest {
 
     protected static WebDriver driver;
     protected static HomePage homePage;
-    String logName;
-    String password;
-    String userName;
+    String logName = "epam";
+    String password = "1234";
+    String userName = "PITER CHAILOVSKII";
 
 
     @BeforeMethod
     public void commonMethodsForEx1Ex2() throws IOException {
-        loadUserDataFromPropertiesFile("userdata.properties");
+        //loadUserDataFromPropertiesFile("userdata.properties");
         //SetUp
         setUpDriverPath();
         setUpDriver();
