@@ -26,9 +26,5 @@ public class AllureAttachmentListener extends TestListenerAdapter {
     public void onTestFailure(ITestResult tr) {
         makeScreenshot("failed");
     }
-
-    @Override
-    public void onTestSuccess(ITestResult tr) {
-        makeScreenshot("success");
-    }
+    
 }
