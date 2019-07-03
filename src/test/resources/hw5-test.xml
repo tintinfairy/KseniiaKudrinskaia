@@ -5,19 +5,22 @@
             <class name="hw5.ex1.Ex1">
                 <methods>
                     <include name="ex1"/>
+                    <exclude name="main"/>
                 </methods>
             </class>
 
             <class name="hw5.ex2.Ex2">
                 <methods>
                     <include name="ex2"/>
+                    <exclude name="main"/>
                 </methods>
             </class>
 
             <class name="hw5.ex3.Ex3">
                 <methods>
-                <include name="ex3"/>
-            </methods>
+                    <include name="ex3"/>
+                    <exclude name="main"/>
+                </methods>
             </class>
         </classes>
     </test>
