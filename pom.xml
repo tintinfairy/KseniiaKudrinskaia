@@ -88,6 +88,16 @@
                 <suite.xml>src/test/resources/hw5-test.xml</suite.xml>
             </properties>
         </profile>
+
+        <profile>
+            <id>hw5</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw5.xml</suite.xml>
+            </properties>
+        </profile>
     </profiles>
 
     <dependencies>
