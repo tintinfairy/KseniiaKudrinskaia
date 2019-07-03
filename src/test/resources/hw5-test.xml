@@ -1,35 +1,10 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="SuiteForAllure">
-    <test name="Ex1">
+    <test name="suite selenium">
         <classes>
-            <class name="hw5.ex1.Ex1">
-                <methods>
-                    <exclude name="ex1"/>
-                    <include name="main"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-
-    <test name="Ex2">
-        <classes>
-            <class name="hw5.ex2.Ex2">
-                <methods>
-                    <exclude name="ex2"/>
-                    <include name="main"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-
-    <test name="Ex3">
-        <classes>
-            <class name="hw5.ex3.Ex3">
-                <methods>
-                    <exclude name="ex3"/>
-                    <include name="main"/>
-                </methods>
-            </class>
+            <class name="hw5.ex1.Ex1"/>
+            <class name="hw5.ex2.Ex2"/>
+            <class name="hw5.ex3.Ex3"/>
         </classes>
     </test>
 

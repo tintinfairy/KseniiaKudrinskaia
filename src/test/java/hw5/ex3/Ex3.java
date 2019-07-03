@@ -13,10 +13,11 @@ import java.util.List;
 
 @Listeners(AllureAttachmentListener.class)
 public class Ex3 extends BaseTest {
+    @Test
     @Story(value = "Testing page https://epam.github.io/JDI/index.html")
     @Feature(value = "Ex1 test duplication which would fail")
-    @Test
-    public void main() {
+
+    public void failedConnectedWithEx1Test() {
 
         HomePageSteps methods = new HomePageSteps();
 

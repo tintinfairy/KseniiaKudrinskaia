@@ -14,10 +14,11 @@ import java.util.List;
 
 @Listeners(AllureAttachmentListener.class)
 public class Ex1 extends BaseTest {
+    @Test
     @Story(value = "Testing page https://epam.github.io/JDI/index.html")
     @Feature(value = "Ex1 test")
-    @Test
-    public void main() {
+
+    public void connectedWithEx1Test() {
 
         HomePageSteps methods = new HomePageSteps();
 

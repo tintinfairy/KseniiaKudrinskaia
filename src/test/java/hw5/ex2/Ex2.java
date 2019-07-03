@@ -18,7 +18,7 @@ public class Ex2 extends BaseTest {
     @Story(value = "Testing page https://epam.github.io/JDI/index.html")
     @Feature(value = "Ex2 test")
     @Test
-    public void main() {
+    public void connectedWithEx2Test() {
         HomePageSteps homepageSteps = new HomePageSteps();
         DifferentElementsPageSteps differentElementsPageSteps = new DifferentElementsPageSteps();
 
