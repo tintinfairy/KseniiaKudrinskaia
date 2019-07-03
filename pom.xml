@@ -80,9 +80,9 @@
             </properties>
         </profile>
         <profile>
-            <id>hw5-test</id>
+            <id>hw5</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw5-test.xml</suite.xml>
