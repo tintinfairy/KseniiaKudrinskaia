@@ -80,7 +80,7 @@
             </properties>
         </profile>
         <profile>
-            <id>hw5</id>
+            <id>hw5-test</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
