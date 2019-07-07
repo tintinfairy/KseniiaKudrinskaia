@@ -17,7 +17,7 @@ import static org.testng.Assert.assertEquals;
 public class BaseTest {
 
     protected static WebDriver driver;
-    HomePage hp;
+    protected static HomePage homePage;
     String logName;
     String password;
     String userName;
@@ -31,14 +31,14 @@ public class BaseTest {
         //SetUp
         setUpDriverPath();
         setUpDriver();
-        hp = new HomePage(driver);
+        homePage = new HomePage(driver);
 
         //1. Open test site by URL
         openPage("https://epam.github.io/JDI");
         //2. Assert browser title
         pageTitleAssertion("Home Page");
         //3. Perform login
-        hp.login(logName, password);
+        homePage.login(logName, password);
         //4.Assert User name in left-top side of screen that user is logged
         usernameAssertion(userName);
     }
@@ -67,12 +67,12 @@ public class BaseTest {
 
     //2.Assert Browser title
     public void pageTitleAssertion(String pageTitle) {
-        assertEquals(hp.getPageTitle(), pageTitle);
+        assertEquals(homePage.getPageTitle(), pageTitle);
     }
 
     //4.Assert User name in the left-top side of screen that user is loggined
     public void usernameAssertion(String userName) {
-        assertEquals(hp.getUsername(), userName);
+        assertEquals(homePage.getUsername(), userName);
     }
 
 

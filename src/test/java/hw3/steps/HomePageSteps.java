@@ -1,7 +1,6 @@
 package hw3.steps;
 
 import hw3.base.BaseTest;
-import hw3.voids.HomePage;
 
 import java.util.List;
 
@@ -12,7 +11,6 @@ import static org.testng.Assert.assertEquals;
 
 public class HomePageSteps extends BaseTest {
 
-    HomePage homePage = new HomePage(driver);
 
     //6. Assert that there are 4 items on the header section are displayed and they have proper texts
     public void amountOfHeadersAssertion() {

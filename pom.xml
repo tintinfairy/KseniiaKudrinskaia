@@ -19,6 +19,8 @@
 
         <aspectj.version>1.8.10</aspectj.version>
 
+        <cucumber.version>1.2.5</cucumber.version>
+
 
     </properties>
 
@@ -174,6 +176,19 @@
             <version>2.9.9</version>
         </dependency>
 
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
