@@ -35,6 +35,7 @@ public class ActionSteps extends BaseSteps {
     }
 
     //14.Select radio
+    // TODO It will enough only ([^\"]*) :)
     @When("^I select radio '([^\\\"]*)'$")
     public void iSelectRadio(String nameOfElement) {
         differentElementsPage.selectRadioOrCheckbox(nameOfElement);
