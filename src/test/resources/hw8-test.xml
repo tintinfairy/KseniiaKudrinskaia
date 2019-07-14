@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="JDITests">
+
+    <test name="TestOfLoginAndMetalAndColorsPageOnEPAMJDIUsingDataProvider">
+        <classes>
+            <class name="hw8.MetalAndColorsPageTestWithDataProvider"/>
+        </classes>
+    </test>
+
+
+</suite>
