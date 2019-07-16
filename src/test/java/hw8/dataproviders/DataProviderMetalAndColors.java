@@ -23,10 +23,11 @@ public class DataProviderMetalAndColors {
                 }.getType());
 
         Object[][] data = new Object[jsonData.size()][1];
-        //TODO You should not organised loop from -1 position !
-        int index = -1;
+        //TODO You should not organised loop from -1 position ! [FIXED]
+        int index = 0;
         for (String key : jsonData.keySet()) {
-            data[++index][0] = jsonData.get(key);
+            data[index][0] = jsonData.get(key);
+            index++;
         }
 
         return data;

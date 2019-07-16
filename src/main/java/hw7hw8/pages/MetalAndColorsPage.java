@@ -15,12 +15,16 @@ import static org.hamcrest.Matchers.equalTo;
 public class MetalAndColorsPage extends WebPage {
     private MetalAndColorsForm form;
 
-    // TODO It will be better with several methods with 'the single responsibility' principle
-    public void fillInFormAndAssertLog(DataForMetalAndColorsForm data) {
-        reload();
+    // TODO It will be better with several methods with 'the single responsibility' principle [FIXED]
+    public void fillInData(DataForMetalAndColorsForm data){
         form.fillDataOnPage(data);
+    }
+    public void clickSubmit(){
         form.clickSubmitButton();
+    }
+    public void logAssertion(DataForMetalAndColorsForm data){
         assertThat(form.getStringListLog(), equalTo(data.getLogIsExpected()));
+        reload();
     }
 
 }
