@@ -15,6 +15,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class MetalAndColorsPage extends WebPage {
     private MetalAndColorsForm form;
 
+    // TODO It will be better with several methods with 'the single responsibility' principle
     public void fillInFormAndAssertLog(DataForMetalAndColorsForm data) {
         reload();
         form.fillDataOnPage(data);

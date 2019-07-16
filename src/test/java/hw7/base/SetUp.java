@@ -25,6 +25,7 @@ public class SetUp {
 
         initElements(JDISite.class);
     }
+
     @BeforeClass
     public void loginAsUserAndOpenMetalAndColorsPage(){
         jdiHomePage.open();
@@ -32,6 +33,7 @@ public class SetUp {
         jdiHomePage.checkLoggedIn(Users.PITER_CHAILOVSKII);
         jdiHomePage.openPageFromHeader(HeaderElements.METALS_AND_COLORS);
     }
+
     @AfterSuite
     public void cleanEnvironment() {
         killAllSeleniumDrivers();
