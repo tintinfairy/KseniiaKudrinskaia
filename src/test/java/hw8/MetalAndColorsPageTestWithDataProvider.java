@@ -11,6 +11,7 @@ public class MetalAndColorsPageTestWithDataProvider extends SetUp {
 
     @Test(dataProviderClass = DataProviderMetalAndColors.class, dataProvider = "DataSetForMetalAndColorsFromJson")
     public void testOfElementsOnMetalAndColorsPage(DataForMetalAndColorsForm data) {
+        // TODO This is not the best idea to smash test scenario for several small pieces.
         metalAndColorsPage.fillInFormAndAssertLog(data);
     }
 
