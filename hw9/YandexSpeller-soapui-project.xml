@@ -422,41 +422,7 @@ context.DataProvider.runWithOneWord(nameOfRequestRUS, wordToCheckRUS, expectedWo
 
 testRunner.testCase.testSuite.project.setPropertyValue("wordToCheck",wordToCheckEN);
 
-context.DataProvider.runWithOneWord(nameOfRequestEN, wordToCheckEN, expectedWordEN);</script></con:config></con:testStep><con:properties><con:property><con:name>wordToCheckEN</con:name><con:value>hully</con:value></con:property><con:property><con:name>wordToCheckRUS</con:name><con:value>здраств3уй</con:value></con:property><con:property><con:name>expectedWordEn</con:name><con:value>holly</con:value></con:property><con:property><con:name>expectedWordRUS</con:name><con:value>здравствуй</con:value></con:property></con:properties></con:testCase><con:testCase id="3574bca4-18a9-4523-a89a-3714da22bc3c" failOnError="false" failTestCaseOnErrors="false" keepSession="false" maxResults="0" name="textTest" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="request" name="ruTextsCheck" id="21c5552c-c679-4c51-be40-d4ffa024f5c9"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SpellServiceSoap12</con:interface><con:operation>checkTexts</con:operation><con:request name="ruTextsCheck" id="b90c5fc0-f39f-433d-8991-57df35621d06"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://speller.yandex.net/services/spellservice</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:spel="http://speller.yandex.net/services/spellservice">
-   <soap:Header/>
-   <soap:Body>
-      <spel:CheckTextsRequest lang="${#Project#russianLanguage}">
-         <!--Zero or more repetitions:-->
-         <spel:text>${#Project#wordsToCheck}</spel:text>
-      </spel:CheckTextsRequest>
-   </soap:Body>
-</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="10136745-daa9-40eb-af40-7935de4354bf"/><con:assertion type="SOAP Fault Assertion" id="79744d3c-3a4f-42d3-9ac9-2a0fec735b32"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="enTextsCheck" id="6db417e1-e18a-4caf-ae2e-1541c6b38f57"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SpellServiceSoap12</con:interface><con:operation>checkTexts</con:operation><con:request name="enTextsCheck" id="b2c882d2-1915-4262-b8a8-b58bb9c89d51"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://speller.yandex.net/services/spellservice</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:spel="http://speller.yandex.net/services/spellservice">
-   <soap:Header/>
-   <soap:Body>
-      <spel:CheckTextsRequest lang="${#Project#englishLanguage}">
-         <!--Zero or more repetitions:-->
-         <spel:text>${#Project#wordsToCheck}</spel:text>
-      </spel:CheckTextsRequest>
-   </soap:Body>
-</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="0e6f58f0-7b96-48df-b637-447f860b4992"/><con:assertion type="SOAP Fault Assertion" id="6d7c4469-d659-488f-ae1c-11f8caa7bc68"/><con:assertion type="Valid HTTP Status Codes" id="b8a7e181-efb0-4f71-8da1-2bf2317f6f64" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="DataProvider" id="70b74b4c-cd66-4b54-8d00-32158e972ada"><con:settings/><con:config><script>def wordsToCheckRUS=testRunner.testCase.getPropertyValue("wordsToCheckRUS")
-def expectedWordsRUS=Arrays.asList("здесь","мало","места");
-def requestRUS = context.testCase.getTestStepByName("ruTextsCheck")
-
-def wordsToCheckEN=testRunner.testCase.getPropertyValue("wordsToCheckEN")
-def expectedWordsEN=Arrays.asList("hello","darkness", "friend");
-def requestEN = context.testCase.getTestStepByName("enTextsCheck")
-
-project = testRunner.testCase.testSuite.project;
-tcase = project.testSuites["DataProviderSetUp"].testCases["setUp"];
-dataProvider = tcase.getTestStepByName("DataProvider").run(testRunner, context);
-
-testRunner.testCase.testSuite.project.setPropertyValue("wordsToCheck",wordsToCheckRUS);
-
-context.DataProvider.runWithManyWords(requestRUS, wordsToCheckRUS, expectedWordsRUS)
-
-testRunner.testCase.testSuite.project.setPropertyValue("wordsToCheck",wordsToCheckEN);
-
-context.DataProvider.runWithManyWords(requestEN, wordsToCheckEN, expectedWordsEN)</script></con:config></con:testStep><con:properties><con:property><con:name>wordsToCheckRUS</con:name><con:value>здес малло мнста</con:value></con:property><con:property><con:name>wordsToCheckEN</con:name><con:value>hillo drkness frend</con:value></con:property></con:properties></con:testCase><con:testCase id="807fa6e6-c8fe-48d1-aeaf-865e8485c4f0" failOnError="false" failTestCaseOnErrors="false" keepSession="false" maxResults="0" name="wordsFromFileTest" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="request" name="ruWordsFromFileCheck" id="8c3375bf-6a13-4050-8413-75c1fa50c468"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SpellServiceSoap12</con:interface><con:operation>checkText</con:operation><con:request name="ruWordsFromFileCheck" id="7b3a91b9-d71a-42c8-9122-6315ec87a02b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://speller.yandex.net/services/spellservice</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:spel="http://speller.yandex.net/services/spellservice">
+context.DataProvider.runWithOneWord(nameOfRequestEN, wordToCheckEN, expectedWordEN);</script></con:config></con:testStep><con:properties><con:property><con:name>wordToCheckEN</con:name><con:value>hully</con:value></con:property><con:property><con:name>wordToCheckRUS</con:name><con:value>здраств3уй</con:value></con:property><con:property><con:name>expectedWordEn</con:name><con:value>holly</con:value></con:property><con:property><con:name>expectedWordRUS</con:name><con:value>здравствуй</con:value></con:property></con:properties></con:testCase><con:testCase id="807fa6e6-c8fe-48d1-aeaf-865e8485c4f0" failOnError="false" failTestCaseOnErrors="false" keepSession="false" maxResults="0" name="wordsFromFileTest" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="request" name="ruWordsFromFileCheck" id="8c3375bf-6a13-4050-8413-75c1fa50c468"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SpellServiceSoap12</con:interface><con:operation>checkText</con:operation><con:request name="ruWordsFromFileCheck" id="7b3a91b9-d71a-42c8-9122-6315ec87a02b"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://speller.yandex.net/services/spellservice</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:spel="http://speller.yandex.net/services/spellservice">
    <soap:Header/>
    <soap:Body>
       <spel:CheckTextRequest lang="${#Project#russianLanguage}">
@@ -492,4 +458,38 @@ context.DataProvider.runWithManyWords(requestEN, wordsToCheckEN, expectedWordsEN
 getDataFromFile("ruWordsFromFileCheck", "inputRusFilePath")
 getDataFromFile("enWordsFromFileCheck", "inputEngFilePath")
 
-</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>englishLanguage</con:name><con:value>en</con:value></con:property><con:property><con:name>russianLanguage</con:name><con:value>ru</con:value></con:property><con:property><con:name>wordToCheck</con:name><con:value>felllng</con:value></con:property><con:property><con:name>expectedWord</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">feeling</con:value></con:property><con:property><con:name>wordsToCheck</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">hillo drkness frend</con:value></con:property><con:property><con:name>inputEngFilePath</con:name><con:value>C:\Users\Admin\Desktop\HW1-TestNG\hw9\endata.cvs</con:value></con:property><con:property><con:name>inputRusFilePath</con:name><con:value>C:\Users\Admin\Desktop\HW1-TestNG\hw9\rudata.cvs</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+</script></con:config></con:testStep><con:properties/></con:testCase><con:testCase id="3574bca4-18a9-4523-a89a-3714da22bc3c" failOnError="false" failTestCaseOnErrors="false" keepSession="false" maxResults="0" name="textTest" searchProperties="true" timeout="0" wsrmEnabled="false" wsrmVersion="1.0" wsrmAckTo="" amfAuthorisation="false" amfEndpoint="" amfLogin="" amfPassword=""><con:settings/><con:testStep type="request" name="ruTextsCheck" id="21c5552c-c679-4c51-be40-d4ffa024f5c9"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SpellServiceSoap12</con:interface><con:operation>checkTexts</con:operation><con:request name="ruTextsCheck" id="b90c5fc0-f39f-433d-8991-57df35621d06"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://speller.yandex.net/services/spellservice</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:spel="http://speller.yandex.net/services/spellservice">
+   <soap:Header/>
+   <soap:Body>
+      <spel:CheckTextsRequest lang="${#Project#russianLanguage}">
+         <!--Zero or more repetitions:-->
+         <spel:text>${#Project#wordsToCheck}</spel:text>
+      </spel:CheckTextsRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="10136745-daa9-40eb-af40-7935de4354bf"/><con:assertion type="SOAP Fault Assertion" id="79744d3c-3a4f-42d3-9ac9-2a0fec735b32"/><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="enTextsCheck" id="6db417e1-e18a-4caf-ae2e-1541c6b38f57"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SpellServiceSoap12</con:interface><con:operation>checkTexts</con:operation><con:request name="enTextsCheck" id="b2c882d2-1915-4262-b8a8-b58bb9c89d51"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://speller.yandex.net/services/spellservice</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:spel="http://speller.yandex.net/services/spellservice">
+   <soap:Header/>
+   <soap:Body>
+      <spel:CheckTextsRequest lang="${#Project#englishLanguage}">
+         <!--Zero or more repetitions:-->
+         <spel:text>${#Project#wordsToCheck}</spel:text>
+      </spel:CheckTextsRequest>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="0e6f58f0-7b96-48df-b637-447f860b4992"/><con:assertion type="SOAP Fault Assertion" id="6d7c4469-d659-488f-ae1c-11f8caa7bc68"/><con:assertion type="Valid HTTP Status Codes" id="b8a7e181-efb0-4f71-8da1-2bf2317f6f64" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="DataProvider" id="70b74b4c-cd66-4b54-8d00-32158e972ada"><con:settings/><con:config><script>def wordsToCheckRUS=testRunner.testCase.getPropertyValue("wordsToCheckRUS")
+def expectedWordsRUS=Arrays.asList("здесь","мало","места");
+def requestRUS = context.testCase.getTestStepByName("ruTextsCheck")
+
+def wordsToCheckEN=testRunner.testCase.getPropertyValue("wordsToCheckEN")
+def expectedWordsEN=Arrays.asList("hello","darkness", "friend");
+def requestEN = context.testCase.getTestStepByName("enTextsCheck")
+
+project = testRunner.testCase.testSuite.project;
+tcase = project.testSuites["DataProviderSetUp"].testCases["setUp"];
+dataProvider = tcase.getTestStepByName("DataProvider").run(testRunner, context);
+
+testRunner.testCase.testSuite.project.setPropertyValue("wordsToCheck",wordsToCheckRUS);
+
+context.DataProvider.runWithManyWords(requestRUS, wordsToCheckRUS, expectedWordsRUS)
+
+testRunner.testCase.testSuite.project.setPropertyValue("wordsToCheck",wordsToCheckEN);
+
+context.DataProvider.runWithManyWords(requestEN, wordsToCheckEN, expectedWordsEN)</script></con:config></con:testStep><con:properties><con:property><con:name>wordsToCheckRUS</con:name><con:value>здес малло мнста</con:value></con:property><con:property><con:name>wordsToCheckEN</con:name><con:value>hillo drkness frend</con:value></con:property></con:properties></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>englishLanguage</con:name><con:value>en</con:value></con:property><con:property><con:name>russianLanguage</con:name><con:value>ru</con:value></con:property><con:property><con:name>wordToCheck</con:name><con:value>felllng</con:value></con:property><con:property><con:name>expectedWord</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">friend</con:value></con:property><con:property><con:name>wordsToCheck</con:name><con:value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">hillo drkness frend</con:value></con:property><con:property><con:name>inputEngFilePath</con:name><con:value>C:\Users\Admin\Desktop\HW1-TestNG\hw9\endata.cvs</con:value></con:property><con:property><con:name>inputRusFilePath</con:name><con:value>C:\Users\Admin\Desktop\HW1-TestNG\hw9\rudata.cvs</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
